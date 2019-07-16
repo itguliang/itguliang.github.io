@@ -8,17 +8,17 @@
   
   <title>阿里云搭建私人git服务器、一键部署Hexo博客 - IT姑凉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="服务器操作系统：Ubuntu 16.04 64位 1、安装git可以执行 git –version 检查是否安装了Git$ sudo apt-get install git # ubuntu$ yum install git # centos$ git --version  # 提示 git version 2.7.4 则安装成功 2、创建git用户及权限首先创建一个用户组，建立用户组的目的在于对">
+  <meta name="description" content="搭建私人git服务器服务器操作系统：Ubuntu 16.04 64位 1、安装git可以执行 git –version 检查是否安装了Git$ sudo apt-get install git # ubuntu$ yum install git # centos$ git --version  # 提示 git version 2.7.4 则安装成功 2、创建git用户及权限首先创建一个用户组，建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里云搭建私人git服务器、一键部署Hexo博客">
 <meta property="og:url" content="http://www.itguliang.com/post/3ceebd6f.html">
 <meta property="og:site_name" content="IT姑凉">
-<meta property="og:description" content="服务器操作系统：Ubuntu 16.04 64位 1、安装git可以执行 git –version 检查是否安装了Git$ sudo apt-get install git # ubuntu$ yum install git # centos$ git --version  # 提示 git version 2.7.4 则安装成功 2、创建git用户及权限首先创建一个用户组，建立用户组的目的在于对">
+<meta property="og:description" content="搭建私人git服务器服务器操作系统：Ubuntu 16.04 64位 1、安装git可以执行 git –version 检查是否安装了Git$ sudo apt-get install git # ubuntu$ yum install git # centos$ git --version  # 提示 git version 2.7.4 则安装成功 2、创建git用户及权限首先创建一个用户组，建">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-06-29T06:54:24.105Z">
+<meta property="og:updated_time" content="2019-07-16T14:56:10.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云搭建私人git服务器、一键部署Hexo博客">
-<meta name="twitter:description" content="服务器操作系统：Ubuntu 16.04 64位 1、安装git可以执行 git –version 检查是否安装了Git$ sudo apt-get install git # ubuntu$ yum install git # centos$ git --version  # 提示 git version 2.7.4 则安装成功 2、创建git用户及权限首先创建一个用户组，建立用户组的目的在于对">
+<meta name="twitter:description" content="搭建私人git服务器服务器操作系统：Ubuntu 16.04 64位 1、安装git可以执行 git –version 检查是否安装了Git$ sudo apt-get install git # ubuntu$ yum install git # centos$ git --version  # 提示 git version 2.7.4 则安装成功 2、创建git用户及权限首先创建一个用户组，建">
   <script type="text/javascript" src="/js/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -74,7 +74,7 @@
             <div class="article-meta">
               <a class="article-date">
   <i class="far fa-calendar-alt"></i>
-  <time datetime="2019-06-26T16:00:00.000Z" itemprop="datePublished">2019-06-27</time>
+  <time datetime="2019-06-28T16:00:00.000Z" itemprop="datePublished">2019-06-29</time>
 </a>
               
               <span class="article-category">
@@ -97,7 +97,7 @@
           
           <div class="article-entry" itemprop="articleBody">
             
-            <p>服务器操作系统：Ubuntu 16.04 64位</p>
+            <h2 id="搭建私人git服务器"><a href="#搭建私人git服务器" class="headerlink" title="搭建私人git服务器"></a>搭建私人git服务器</h2><p>服务器操作系统：Ubuntu 16.04 64位</p>
 <h3 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h3><p>可以执行 git –version 检查是否安装了Git<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install git <span class="comment"># ubuntu</span></span><br><span class="line">$ yum install git <span class="comment"># centos</span></span><br><span class="line">$ git --version  <span class="comment"># 提示 git version 2.7.4 则安装成功</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="2、创建git用户及权限"><a href="#2、创建git用户及权限" class="headerlink" title="2、创建git用户及权限"></a>2、创建git用户及权限</h3><p>首先创建一个用户组，建立用户组的目的在于对于这个git服务器，赋予多人访问权限时，可以统一管理。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ groupadd git</span><br><span class="line">$ tail -n 2 /etc/group</span><br><span class="line"><span class="comment"># .....</span></span><br><span class="line"><span class="comment"># 输出类似 git:x:1000: 的提示</span></span><br></pre></td></tr></table></figure></p>
 <p>在用户组git下创建一个用户，名字为 itguliang<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ useradd -d /home/itguliang  -g git -m itguliang </span><br><span class="line"><span class="comment">#  home文件夹下会自动创建itguliang文件夹</span></span><br><span class="line">$ passwd  username <span class="comment"># 修改密码 git提交等命令会需要</span></span><br><span class="line">$ id itguliang</span><br><span class="line"><span class="comment"># 输出类似 uid=1000(itguliang) gid=1000(git) groups=1000(git)</span></span><br></pre></td></tr></table></figure></p>
@@ -110,6 +110,23 @@
 <h3 id="5、在服务器初始化git仓库"><a href="#5、在服务器初始化git仓库" class="headerlink" title="5、在服务器初始化git仓库"></a>5、在服务器初始化git仓库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /project</span><br><span class="line">$ mkdir git</span><br><span class="line">$ chown itguliang:git git/</span><br><span class="line">$ <span class="built_in">cd</span> git</span><br><span class="line">$ git init --bare hexo-blog.git</span><br><span class="line">$ chown -R itguliang:git hexo-blog.git</span><br></pre></td></tr></table></figure>
 <h3 id="6、本地克隆"><a href="#6、本地克隆" class="headerlink" title="6、本地克隆"></a>6、本地克隆</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> itguliang@XXX.XXX.XXX.XXX:/project/git/hexo-blog.git</span><br></pre></td></tr></table></figure>
 <p>会提示你输入git的密码，输入进去，然后会再提示: You appear to have cloned an empty repository.<br>这说明服务器已经OK了。</p>
+<h2 id="一键部署Hexo博客"><a href="#一键部署Hexo博客" class="headerlink" title="一键部署Hexo博客"></a>一键部署Hexo博客</h2><p>之前的Hexo博客是部署在github上，域名解析到对应的github-page。现在折腾一下将博客部署到个人的服务器，hexo g、hexo d 一键部署不用拖文件那种</p>
+<p>服务器: 阿里云Ubuntu 16.04 64位  </p>
+<p>步骤:</p>
+<ul>
+<li>阿里云上搭建自己的git服务器 — 传送门</li>
+<li>hexo配置push到云服务器上的私人仓库</li>
+<li>打包hexo静态文件并上传到服务器上的私人仓库</li>
+<li>设置git脚本将已上传的静态资源拷贝到自定义目录下</li>
+<li>nginx部署web服务，配置静态资源访问目录到自定义目录</li>
+</ul>
+<p>具体实现:</p>
+<h3 id="1、本地-config-yml配置"><a href="#1、本地-config-yml配置" class="headerlink" title="1、本地_config.yml配置"></a>1、本地_config.yml配置</h3><p>修改_config.yml文件，配置push到云服务器的私人仓库：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:    </span><br><span class="line">  <span class="built_in">type</span>: git    </span><br><span class="line">  message: update    </span><br><span class="line">  repo: yourusername@server_ip:~/path/to/your/blog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、Git脚本"><a href="#2、Git脚本" class="headerlink" title="2、Git脚本"></a>2、Git脚本</h3><p>push到自己的仓库后，需要利用脚本将仓库的public资源拉取到一个文件夹下，作为nginx后面在配置的映射地址，进入配置的仓库下的hooks文件夹，修改hooks文件：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /project/git/hexo-blog.git/hooks</span><br><span class="line">$ touch post-receive</span><br><span class="line">$ vim post-receive</span><br></pre></td></tr></table></figure></p>
+<p>使用如下的脚本<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash -l</span></span><br><span class="line">GIT_REPO=/project/git/hexo-blog.git</span><br><span class="line">TMP_GIT_CLONE=/project/git/tmp/hexo-blog</span><br><span class="line">PUBLIC_WWW=/project/hexo-blog</span><br><span class="line">rm -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span></span><br><span class="line">git <span class="built_in">clone</span> <span class="variable">$GIT_REPO</span> <span class="variable">$TMP_GIT_CLONE</span></span><br><span class="line">rm -rf <span class="variable">$&#123;PUBLIC_WWW&#125;</span></span><br><span class="line">cp -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span> <span class="variable">$&#123;PUBLIC_WWW&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>其中public_www就是用于最终存放nginx映射的静态资源文件目录。 通过此脚本，每次仓库接收到新上传的内容时都会自动拷贝资源到该目录下。tmp目录可能要自己新建。<br>修改文件夹的读写权限，脚本才可自动执行<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x post-receive</span><br><span class="line">chown -R itguliang:git /project/</span><br><span class="line">chmod -R g+w /project/</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、修改nginx配置"><a href="#3、修改nginx配置" class="headerlink" title="3、修改nginx配置"></a>3、修改nginx配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    listen [::]:80;</span><br><span class="line">    server_name itguliang.com www.itguliang.com;    </span><br><span class="line">    location / &#123; </span><br><span class="line">       root /project/hexo-blog;</span><br><span class="line">       try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置完毕后重启nginx服务就可以实现远程自动部署了， 之后pc端每次打包上传代码后服务器会自动更新资源。<br>注意：要先hexo g ，然后再hexo d 部署。</p>
 
             
           </div>
@@ -165,7 +182,7 @@
   
     <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装git"><span class="toc-text">1、安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建git用户及权限"><span class="toc-text">2、创建git用户及权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、在客户端创建RSA密钥"><span class="toc-text">3、在客户端创建RSA密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、在服务器上建立文件保存公钥"><span class="toc-text">4、在服务器上建立文件保存公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、在服务器初始化git仓库"><span class="toc-text">5、在服务器初始化git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、本地克隆"><span class="toc-text">6、本地克隆</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建私人git服务器"><span class="toc-text">搭建私人git服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装git"><span class="toc-text">1、安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建git用户及权限"><span class="toc-text">2、创建git用户及权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、在客户端创建RSA密钥"><span class="toc-text">3、在客户端创建RSA密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、在服务器上建立文件保存公钥"><span class="toc-text">4、在服务器上建立文件保存公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、在服务器初始化git仓库"><span class="toc-text">5、在服务器初始化git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、本地克隆"><span class="toc-text">6、本地克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一键部署Hexo博客"><span class="toc-text">一键部署Hexo博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、本地-config-yml配置"><span class="toc-text">1、本地_config.yml配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Git脚本"><span class="toc-text">2、Git脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、修改nginx配置"><span class="toc-text">3、修改nginx配置</span></a></li></ol></li></ol>
     </div>
 
 
