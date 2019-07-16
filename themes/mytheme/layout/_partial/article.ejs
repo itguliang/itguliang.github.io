@@ -1,0 +1,111 @@
+<div id="container">
+  <% if (post.toc){ %>
+  <div class="post-toc">
+    <% } else{%>
+    <div class="post">
+      <% } %>
+      <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope
+        itemprop="blogPost">
+
+        <div class="article-inner">
+          <%- partial('post/gallery') %>
+          <% if (post.link || post.title){ %>
+          <header>
+            <%- partial('post/title', {class_name: 'article-title'}) %>
+            <div class="article-meta">
+              <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+              <% if (post.categories && post.categories.length){ %>
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <%- list_categories(post.categories, {
+                    show_count: false,
+                    class: 'article-category',
+                    style: 'none',
+                    separator: '<i class="fas fa-angle-right"></i>'
+                  }) %>
+              </span>
+              <% } %>
+              <% if(config.leancloud_visitors.enable){ %>
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="<%= url_for(post.path) %>" class="leancloud_visitors"
+                  data-flag-title="<%- post.title %>"></span>
+              </span>
+              <% } %>
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          <% } %>
+          <div class="article-entry" itemprop="articleBody">
+            <% if (post.excerpt && index){ %>
+            <%- post.excerpt %>
+            <% if (theme.excerpt_link){ %>
+            <p class="article-more-link">
+              <a href="<%- url_for(post.path) %>#more">
+                <%= theme.excerpt_link %></a>
+            </p>
+            <% } %>
+            <% } else { %>
+            <%- post.content %>
+            <% } %>
+          </div>
+        </div>
+
+        <% if (!index && post.copyright==true){ %>
+        <%- partial('post/copyright') %>
+        <% } %>
+
+        <% if (!index){ %>
+        <%- partial('post/nav') %>
+        <% } %>
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  <%- partial('post/toc') %>
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>

@@ -1,0 +1,153 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: IT姑凉
+subtitle: 
+description: 
+keywords: 
+author: IT姑凉
+language: zh-cn
+timezone: 
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://www.itguliang.com 
+root: /
+permalink: post/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
+permalink_defaults: 
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: false
+  auto_detect: false
+  tab_replace:
+  
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 20
+  order_by: -date
+  
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# theme: landscape
+theme: mytheme
+
+nofollow:
+    enable: true
+    exclude:
+    - https://fuzhaohao.github.io
+    - http://www.linovo.me
+    - http://mumusanke.com
+    - https://musclejack.github.io
+    - http://jintang.github.io
+    - http://www.lovemoqing.com
+    - https://www.xinke.org.cn
+
+links:
+  Michael: https://fuzhaohao.github.io
+  Linovo: #http://www.linovo.me
+  Sherryriver: #http://mumusanke.com
+  Mz: https://musclejack.github.io
+  堂: http://jintang.github.io
+  默卿: #https://www.lovemoqing.com
+  ECode1024: https://www.xinke.org.cn
+  yjq的博客: #http://47.106.92.19:8080/blog/
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+# leancloud统计
+leancloud_visitors:
+  enable: true
+  app_id: 7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz
+  app_key: RYC5fHYsedrXiXT1xrNeEWfI
+
+#七牛云存储设置
+
+qiniu:
+  offline: false #是否离线. 离线状态将使用本地地址渲染
+  sync: true #是否同步
+  bucket: itguliang-blog #空间名称
+##secret_file   秘钥文件路径，可以将上述两个属性配置到文件内，防止泄露，json格式。绝对路径相对路径均可
+  secret_file: 
+  access_key: 41kw6gVc5UgWHJObYKJ1EULwHA6XOl3ZHDmoYYOs #上传密钥AccessKey
+  secret_key: H9Yboe4ad49x5qM1kqEw5c2NxUTLltn-czzTSwWW #上传密钥SecretKey
+##dirPrefix     上传的资源子目录前缀.如设置，需与urlPrefix同步 
+  dirPrefix: static
+  urlPrefix: http://img.itguliang.com/static #外链前缀
+##up_host      上传服务器路径,如选择华北区域的话配置为http://up-z1.qiniu.com
+  up_host: http://upload.qiniu.com
+  local_dir: static #本地目录
+##update_exist  是否更新已经上传过的文件(仅文件大小不同或在上次上传后进行更新的才会重新上传)
+  update_exist: true
+##image/js/css  子参数folder为不同静态资源种类的目录名称，一般不需要改动
+##image.extend  这是个特殊参数，用于生成缩略图或加水印等操作。
+##              具体请参考http://developer.qiniu.com/docs/v6/api/reference/fop/image/ 
+##              可使用基本图片处理、高级图片处理、图片水印处理这3个接口。
+##              例如 ?imageView2/2/w/500 即生成宽度最多500px的缩略图
+  image: 
+    folder: images
+    extend: 
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/itguliang/itguliang.github.io.git
+  name: itguliang
+  
+# deploy:
+#   type: git
+#   repo: itguliang@120.79.144.244:/project/git/hexo-blog.git
+#   branch: master
+#   name: itguliang
+#   message: update

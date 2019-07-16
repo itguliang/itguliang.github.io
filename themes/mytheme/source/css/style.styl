@@ -1,0 +1,152 @@
+@import "nib"
+@import "_variables"
+@import "_util/mixin"
+@import "_util/grid"
+
+global-reset()
+
+input, button
+  margin: 0
+  padding: 0
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+@font-face
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  src: url(font-icon-path + ".eot?v=#" + font-icon-version)
+  src: url(font-icon-path + ".eot?#iefix&v=#" + font-icon-version) format("embedded-opentype"),
+       url(font-icon-path + ".woff?v=#" + font-icon-version) format("woff"),
+       url(font-icon-path + ".ttf?v=#" + font-icon-version) format("truetype"),
+       url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
+html
+  overflow-x:hidden
+body
+  font: font-size font-sans
+  -webkit-text-size-adjust: 100%
+  overflow:hidden
+
+input
+  vertical-align: middle
+
+.err
+  text-align: center
+.err1
+  font-size: 120px
+  color: grey
+  margin: 150px 0 50px 0
+.err2
+  color: grey
+.err3
+  margin: 20px
+  a
+    text-decoration: none
+    color: #00aced
+
+.outer
+  clearfix()
+  max-width: (column-width + gutter-width) * columns + gutter-width
+  margin: 0 auto
+
+.inner
+  column(columns)
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both
+
+#container
+  display:flex
+  flex-wrap: wrap;
+  position: relative
+  width:72%
+  margin:0 auto
+  .post-toc
+    width:80%
+    margin:0 5%
+    @media mq-mobile
+      width:100%
+      margin:0
+  .post
+    width:90%
+    margin:0 auto
+    @media mq-mobile
+      width:100%
+
+  @media mq-mobile
+    width:90%
+
+
+.mobile-nav-on
+  overflow: hidden
+
+#wrap
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  transition: 0.2s ease-out
+  z-index: 1
+  background: color-background
+  .mobile-nav-on &
+    left: mobile-nav-width
+
+if sidebar and sidebar isnt bottom
+  #main
+    @media mq-normal
+      column(main-column)
+
+if sidebar is left
+  @media mq-normal
+    #main
+      float: right
+
+@import "_extend"
+@import "_partial/header"
+@import "_partial/article"
+@import "_partial/toc"
+@import "_partial/archive"
+@import "_partial/footer"
+@import "_partial/highlight"
+@import "_partial/mobile"
+
+if sidebar
+  @import "_partial/sidebar"
+
+.comment-title
+  margin: 15px 0
+  font-size: 25px
+  line-height: 1.4
+  font-weight: 300
+  letter-spacing: 2px
+  color: #555
+.v 
+  .vwrap
+    border: 1px solid #dfdfdf
+    border-radius: 10px
+  .veditor 
+    min-height: 80px;
+  .vnick,.vcontrol .col-40
+    width:100% !important
+  .vsys,.vmail,.vlink,.vctrl,.vcontrol .col-60,.markdown
+    display:none !important
+  .vcontent
+    color: #888
+    .at
+      color: #1abc9c;
+      margin-right: 8px;
+    p
+      display:inline-block !important
+
+
+
+.power
+  display:none
