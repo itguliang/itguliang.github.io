@@ -144,10 +144,3 @@ deploy:
   type: git
   repo: https://github.com/itguliang/itguliang.github.io.git
   name: itguliang
-  
-# deploy:
-#   type: git
-#   repo: itguliang@120.79.144.244:/project/git/hexo-blog.git
-#   branch: master
-#   name: itguliang
-#   message: update

@@ -1,6 +1,6 @@
 ---
-title: 小程序
-date: 2018-11-01
+title: 微信小程序
+date: 2019-06-20
 categories:
   - IT
 abbrlink: 834a9829

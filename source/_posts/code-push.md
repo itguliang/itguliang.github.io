@@ -64,7 +64,7 @@ $ code-push app add <appName> <os> <platform>
 # code-push app add MyApp-Android android cordova  添加 android(os)、cordova(platform) 应用
 ```
 
-图形化界面：
+图形化界面：https://appcenter.ms/apps
 {% qnimg bdc17ac0-3.png %}
 
 CodePush管理App的相关命令：

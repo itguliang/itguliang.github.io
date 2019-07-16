@@ -6,6 +6,8 @@ categories:
 abbrlink: 1fd47712
 ---
 
+分享一个可以模拟各种分辨率的网页（要翻墙） http://quirktools.com/screenfly/
+
 [Ant Design](https://ant.design/docs/react/introduce-cn)
 [Ant Design Pro](https://pro.ant.design/docs/getting-started-cn)
 [UmiJS](https://umijs.org/zh/guide/)
@@ -19,6 +21,7 @@ abbrlink: 1fd47712
 	- 通讯录操作：[react-native-contacts](https://github.com/rt2zz/react-native-contacts)
 	- 国际化：[react-native-i18n](https://github.com/AlexanderZaytsev/react-native-i18n)
 	- 获取设备信息：[react-native-device-info](https://github.com/rebeccahughes/react-native-device-info)
+	- 消息推送
 	- ARMS SDK 版本更新、热部署
 	- 二维码扫描：[react-native-qrcode](https://github.com/cssivision/react-native-qrcode)
 	- 渲染html：[react-native-render-html](https://github.com/archriss/react-native-render-html)

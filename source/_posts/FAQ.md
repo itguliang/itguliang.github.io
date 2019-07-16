@@ -8,6 +8,56 @@ tags:
   - FAQ
 abbrlink: 5254fc55
 ---
+
+### Q：文字两边有横线
+
+复制下方代码到 https://www.runoob.com/try/try.php?filename=trycss_default 运行
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demo</title>
+<style>
+.demo{
+	position:relative;
+	width:100px;
+	text-align:center;
+	margin:0 auto;
+}
+.demo:after,.demo:before{
+	position:absolute;
+	content:'';
+	width:50px;
+	height:1px;
+	background:red;
+	top:11px;
+}
+.demo:before{left:-55px;}
+.demo:after{right:-55px;}
+
+.demo2{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.line{
+	display:inline-block;
+	width:50px;
+	height:1px;
+	background:red;
+	margin:0 10px;
+}
+</style>
+</head>
+<body>
+<div class="demo">伪元素实现</div>
+<div class="demo2"><div class="line"></div>flex实现<div class="line"></div></div>
+</body>
+</html>
+```
+
 ### Q：vim 命令
 
 https://www.cnblogs.com/libaoliang/articles/6961676.html

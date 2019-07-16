@@ -1,12 +1,15 @@
 ---
 title: 阿里云搭建私人git服务器、一键部署Hexo博客
-date: 2019-06-27
+date: 2019-06-29
 categories:
   - IT
 toc: true
 copyright: true
 abbrlink: 3ceebd6f
 ---
+
+## 搭建私人git服务器
+
 服务器操作系统：Ubuntu 16.04 64位
 
 ### 1、安装git
@@ -85,3 +88,71 @@ $ git clone itguliang@XXX.XXX.XXX.XXX:/project/git/hexo-blog.git
 
 会提示你输入git的密码，输入进去，然后会再提示: You appear to have cloned an empty repository.
 这说明服务器已经OK了。
+
+## 一键部署Hexo博客
+
+之前的Hexo博客是部署在github上，域名解析到对应的github-page。现在折腾一下将博客部署到个人的服务器，hexo g、hexo d 一键部署不用拖文件那种
+
+服务器: 阿里云Ubuntu 16.04 64位  
+
+步骤:
+- 阿里云上搭建自己的git服务器 --- 传送门
+- hexo配置push到云服务器上的私人仓库
+- 打包hexo静态文件并上传到服务器上的私人仓库
+- 设置git脚本将已上传的静态资源拷贝到自定义目录下
+- nginx部署web服务，配置静态资源访问目录到自定义目录
+
+具体实现:
+
+### 1、本地_config.yml配置
+修改_config.yml文件，配置push到云服务器的私人仓库：
+```bash
+deploy:    
+  type: git    
+  message: update    
+  repo: yourusername@server_ip:~/path/to/your/blog.git
+  branch: master
+```
+
+### 2、Git脚本
+push到自己的仓库后，需要利用脚本将仓库的public资源拉取到一个文件夹下，作为nginx后面在配置的映射地址，进入配置的仓库下的hooks文件夹，修改hooks文件：
+```bash
+$ cd /project/git/hexo-blog.git/hooks
+$ touch post-receive
+$ vim post-receive
+```
+
+使用如下的脚本
+```bash
+#!/bin/bash -l
+GIT_REPO=/project/git/hexo-blog.git
+TMP_GIT_CLONE=/project/git/tmp/hexo-blog
+PUBLIC_WWW=/project/hexo-blog
+rm -rf ${TMP_GIT_CLONE}
+git clone $GIT_REPO $TMP_GIT_CLONE
+rm -rf ${PUBLIC_WWW}
+cp -rf ${TMP_GIT_CLONE} ${PUBLIC_WWW}
+```
+其中public_www就是用于最终存放nginx映射的静态资源文件目录。 通过此脚本，每次仓库接收到新上传的内容时都会自动拷贝资源到该目录下。tmp目录可能要自己新建。
+修改文件夹的读写权限，脚本才可自动执行
+```bash
+chmod +x post-receive
+chown -R itguliang:git /project/
+chmod -R g+w /project/
+```
+
+### 3、修改nginx配置
+
+```bash
+server {
+    listen 80;
+    listen [::]:80;
+    server_name itguliang.com www.itguliang.com;    
+    location / { 
+       root /project/hexo-blog;
+       try_files $uri $uri/ =404;
+    }
+}
+```
+配置完毕后重启nginx服务就可以实现远程自动部署了， 之后pc端每次打包上传代码后服务器会自动更新资源。
+注意：要先hexo g ，然后再hexo d 部署。
