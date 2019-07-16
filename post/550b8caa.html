@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>Xcode archive 打包ipa过程图解 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="导入iOS证书p12到钥匙串，双击p12文件，登录，导入证书 1.选择Generic iOS Device，选择其他模拟器是不能Archive的 2.Xcode 工具条 Product 下点击 Archive 3.如果弹出下面框，输入本机密码，始终允许 4.点击Export 5.点击Enterprise 6.点击Next 7.选择证书,点击Next 8.最后点击导出，选择指定位置即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode archive 打包ipa过程图解">
+<meta property="og:url" content="http://www.itguliang.com/post/550b8caa.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="导入iOS证书p12到钥匙串，双击p12文件，登录，导入证书 1.选择Generic iOS Device，选择其他模拟器是不能Archive的 2.Xcode 工具条 Product 下点击 Archive 3.如果弹出下面框，输入本机密码，始终允许 4.点击Export 5.点击Enterprise 6.点击Next 7.选择证书,点击Next 8.最后点击导出，选择指定位置即可">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-1.png?2019">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-2.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-3.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-4.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-5.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-6.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-7.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/550b8caa-8.png">
+<meta property="og:updated_time" content="2019-03-13T01:01:18.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode archive 打包ipa过程图解">
+<meta name="twitter:description" content="导入iOS证书p12到钥匙串，双击p12文件，登录，导入证书 1.选择Generic iOS Device，选择其他模拟器是不能Archive的 2.Xcode 工具条 Product 下点击 Archive 3.如果弹出下面框，输入本机密码，始终允许 4.点击Export 5.点击Enterprise 6.点击Next 7.选择证书,点击Next 8.最后点击导出，选择指定位置即可">
+<meta name="twitter:image" content="http://img.itguliang.com/static/images/550b8caa-1.png?2019">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+    <div class="post">
+      
+      <article id="post-xcode-archive-package" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Xcode archive 打包ipa过程图解
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-06-03T16:00:00.000Z" itemprop="datePublished">2018-06-04</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/550b8caa.html" class="leancloud_visitors" data-flag-title="Xcode archive 打包ipa过程图解"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <p>导入iOS证书p12到钥匙串，双击p12文件，登录，导入证书</p>
+<h4 id="1-选择Generic-iOS-Device，选择其他模拟器是不能Archive的"><a href="#1-选择Generic-iOS-Device，选择其他模拟器是不能Archive的" class="headerlink" title="1.选择Generic iOS Device，选择其他模拟器是不能Archive的"></a>1.选择Generic iOS Device，选择其他模拟器是不能Archive的</h4><img src="http://img.itguliang.com/static/images/550b8caa-1.png?2019">
+<h4 id="2-Xcode-工具条-Product-下点击-Archive"><a href="#2-Xcode-工具条-Product-下点击-Archive" class="headerlink" title="2.Xcode 工具条 Product 下点击 Archive"></a>2.Xcode 工具条 Product 下点击 Archive</h4><img src="http://img.itguliang.com/static/images/550b8caa-2.png">
+<h4 id="3-如果弹出下面框，输入本机密码，始终允许"><a href="#3-如果弹出下面框，输入本机密码，始终允许" class="headerlink" title="3.如果弹出下面框，输入本机密码，始终允许"></a>3.如果弹出下面框，输入本机密码，始终允许</h4><img src="http://img.itguliang.com/static/images/550b8caa-3.png">
+<h4 id="4-点击Export"><a href="#4-点击Export" class="headerlink" title="4.点击Export"></a>4.点击Export</h4><img src="http://img.itguliang.com/static/images/550b8caa-4.png">
+<h4 id="5-点击Enterprise"><a href="#5-点击Enterprise" class="headerlink" title="5.点击Enterprise"></a>5.点击Enterprise</h4><img src="http://img.itguliang.com/static/images/550b8caa-5.png">
+<h4 id="6-点击Next"><a href="#6-点击Next" class="headerlink" title="6.点击Next"></a>6.点击Next</h4><img src="http://img.itguliang.com/static/images/550b8caa-6.png">
+<h4 id="7-选择证书-点击Next"><a href="#7-选择证书-点击Next" class="headerlink" title="7.选择证书,点击Next"></a>7.选择证书,点击Next</h4><img src="http://img.itguliang.com/static/images/550b8caa-7.png">
+<h4 id="8-最后点击导出，选择指定位置即可"><a href="#8-最后点击导出，选择指定位置即可" class="headerlink" title="8.最后点击导出，选择指定位置即可"></a>8.最后点击导出，选择指定位置即可</h4><img src="http://img.itguliang.com/static/images/550b8caa-8.png">
+
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/27fd0447.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          华为Android8无法播放.aac文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/80eb106e.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        Cordova 二维码扫描插件 cordova-plugin-qrscanner
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

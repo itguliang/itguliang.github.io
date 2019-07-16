@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>阿里云服务ECS折腾小记（Ubuntu+Node+Mongodb+pm2+Nginx） - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="相关概念 地域和可用区：指ECS实例所在的物理位置。 实例：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。 实例规格：指实例的配置，包括vCPU核数、内存、网络性能等。实例规格决定了ECS实例的计算和存储能力。 镜像：指ECS实例运行环境的模板，一般包括操作系统和预装的软件。操作系统支持多种Linux发行版本和不同的Windows版本。 块存储：包括基于分布式存储架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云服务ECS折腾小记（Ubuntu+Node+Mongodb+pm2+Nginx）">
+<meta property="og:url" content="http://www.itguliang.com/post/a0ad69e3.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="相关概念 地域和可用区：指ECS实例所在的物理位置。 实例：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。 实例规格：指实例的配置，包括vCPU核数、内存、网络性能等。实例规格决定了ECS实例的计算和存储能力。 镜像：指ECS实例运行环境的模板，一般包括操作系统和预装的软件。操作系统支持多种Linux发行版本和不同的Windows版本。 块存储：包括基于分布式存储架构">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-06-29T01:58:22.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿里云服务ECS折腾小记（Ubuntu+Node+Mongodb+pm2+Nginx）">
+<meta name="twitter:description" content="相关概念 地域和可用区：指ECS实例所在的物理位置。 实例：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。 实例规格：指实例的配置，包括vCPU核数、内存、网络性能等。实例规格决定了ECS实例的计算和存储能力。 镜像：指ECS实例运行环境的模板，一般包括操作系统和预装的软件。操作系统支持多种Linux发行版本和不同的Windows版本。 块存储：包括基于分布式存储架构">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+  <div class="post-toc">
+    
+      <article id="post-aliyun-ecs" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      阿里云服务ECS折腾小记（Ubuntu+Node+Mongodb+pm2+Nginx）
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-10-29T16:00:00.000Z" itemprop="datePublished">2018-10-30</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/a0ad69e3.html" class="leancloud_visitors" data-flag-title="阿里云服务ECS折腾小记（Ubuntu+Node+Mongodb+pm2+Nginx）"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
+<li><strong>地域和可用区</strong>：指ECS实例所在的物理位置。</li>
+<li><strong>实例</strong>：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。</li>
+<li><strong>实例规格</strong>：指实例的配置，包括vCPU核数、内存、网络性能等。实例规格决定了ECS实例的计算和存储能力。</li>
+<li><strong>镜像</strong>：指ECS实例运行环境的模板，一般包括操作系统和预装的软件。操作系统支持多种Linux发行版本和不同的Windows版本。</li>
+<li><strong>块存储</strong>：包括基于分布式存储架构的 云盘和共享块存储，以及基于物理机本地硬盘的 本地存储。</li>
+<li><strong>快照</strong>：指某一个时间点上一块弹性块存储的数据备份。</li>
+<li><strong>网络类型</strong>：<ul>
+<li><strong>专有网络</strong>：基于阿里云构建的一个隔离的网络环境，也称为VPC，VPC之间逻辑上彻底隔离。更多信息，请参考 专有网络VPC。</li>
+<li><strong>经典网络</strong>：统一部署在阿里云公共基础设施内，规划和管理由阿里云负责。</li>
+</ul>
+</li>
+<li><strong>安全组</strong>：由同一地域内具有相同保护需求并相互信任的实例组成，是一种虚拟防火墙，用于设置实例的网络访问控制。</li>
+</ul>
+<h2 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h2><p>配置：1核 2GB 操作系统： Ubuntu 16.04 64位<br>域名：itguliang.com</p>
+<h2 id="命令行连接服务器"><a href="#命令行连接服务器" class="headerlink" title="命令行连接服务器"></a>命令行连接服务器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh root@ip <span class="comment">#输入密码</span></span><br></pre></td></tr></table></figure>
+<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><h3 id="安装-node"><a href="#安装-node" class="headerlink" title="安装 node"></a>安装 node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</span><br><span class="line">$ sudo apt-get install -y nodejs</span><br><span class="line">$ node -v   <span class="comment">#v10.12.0</span></span><br><span class="line">$ npm -v    <span class="comment">#6.4.1</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-mongodb"><a href="#安装-mongodb" class="headerlink" title="安装 mongodb"></a>安装 mongodb</h3><p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" rel="external nofollow noopener noreferrer" target="_blank">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/</a></p>
+<p>导入包管理系统使用的公钥<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4</span><br></pre></td></tr></table></figure></p>
+<p>为MongoDB创建一个列表文件<br>根据Ubuntu 16.04版本创建/etc/apt/sources.list.d/mongodb-org-3.4.list 列表文件<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse"</span> | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list</span><br></pre></td></tr></table></figure></p>
+<p>更新本地包数据库<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>安装最新版本的MongoDB<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install -y mongodb-org</span><br><span class="line">$ mongo --version <span class="comment">#MongoDB shell version v4.0.3</span></span><br></pre></td></tr></table></figure></p>
+<p>配置文件mongod.conf所在路径: /etc/mongod.conf<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mongod.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for documentation of all options, see:</span></span><br><span class="line"><span class="comment">#   http://docs.mongodb.org/manual/reference/configuration-options/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Where and how to store data.</span></span><br><span class="line">storage:</span><br><span class="line">  dbPath: /var/lib/mongodb  <span class="comment">#数据库存储路径</span></span><br><span class="line">  journal:</span><br><span class="line">    enabled: <span class="literal">true</span></span><br><span class="line"><span class="comment">#  engine:</span></span><br><span class="line"><span class="comment">#  mmapv1:</span></span><br><span class="line"><span class="comment">#  wiredTiger:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># where to write logging data.</span></span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: <span class="literal">true</span>  <span class="comment">#以追加的方式写入日志</span></span><br><span class="line">  path: /var/<span class="built_in">log</span>/mongodb/mongod.log  <span class="comment">#日志文件路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># network interfaces</span></span><br><span class="line">net:</span><br><span class="line">  port: 27017</span><br><span class="line">  bindIp: 127.0.0.1   <span class="comment">#绑定监听的ip 127.0.0.1只能监听本地的连接，可以改为0.0.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># how the process runs</span></span><br><span class="line">processManagement:</span><br><span class="line">  timeZoneInfo: /usr/share/zoneinfo</span><br><span class="line"></span><br><span class="line"><span class="comment">#security:</span></span><br><span class="line"><span class="comment">#operationProfiling:</span></span><br><span class="line"><span class="comment">#replication:</span></span><br><span class="line"><span class="comment">#sharding:</span></span><br><span class="line"><span class="comment">## Enterprise-Only Options:</span></span><br><span class="line"><span class="comment">#auditLog:</span></span><br><span class="line"><span class="comment">#snmp:</span></span><br></pre></td></tr></table></figure></p>
+<p>启动关闭命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service mongod start  <span class="comment"># 启动</span></span><br><span class="line">$ sudo service mongod stop   <span class="comment"># 关闭</span></span><br></pre></td></tr></table></figure></p>
+<p>卸载安装的软件包<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get purge mongodb-org*</span><br></pre></td></tr></table></figure></p>
+<p>移除数据库和日志文件（数据库和日志文件的路径取决于/etc/mongod.conf文件中的配置)<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rm -r /var/<span class="built_in">log</span>/mongodb</span><br><span class="line">$ sudo rm -r /var/lib/mongodb</span><br></pre></td></tr></table></figure></p>
+<p>mongodb的默认开启端口是27017  安全组规则添加<br><!-- - 设置开机启动： --></p>
+<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br><span class="line">$ git --version  <span class="comment"># git version 2.7.4</span></span><br></pre></td></tr></table></figure>
+<h3 id="pm2-部署"><a href="#pm2-部署" class="headerlink" title="pm2 部署"></a>pm2 部署</h3><p>命令行可以启动并公网访问，但是关掉命令行服务就停止了，这个时候需要用到pm2</p>
+<p>安装<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install pm2 -g</span><br></pre></td></tr></table></figure></p>
+<p>启动<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pm2 start xxx.js <span class="comment">#可以配置到package.json</span></span><br></pre></td></tr></table></figure></p>
+<p>设置重启服务器也可以自动启动node<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pm2 start   <span class="comment">#启动服务</span></span><br><span class="line">$ pm2 save    <span class="comment">#保存当前已经启动了的服务</span></span><br><span class="line">$ pm2 startup <span class="comment">#设置开机自启的配置) </span></span><br><span class="line">$ pm2 startup <span class="comment">#以后会得到以下提示 设置环境变量</span></span><br><span class="line">[PM2] Init System found: upstart</span><br><span class="line">[PM2] To setup the Startup Script, copy/paste the following <span class="built_in">command</span>:</span><br><span class="line">sudo env PATH=<span class="variable">$PATH</span>:/opt/bitnami/nodejs/bin /opt/bitnami/nodejs/lib/node_modules/pm2/bin/pm2 startup upstart -u bitnami --hp /home/bitnami</span><br><span class="line"></span><br><span class="line">粘贴复制 sudo env….这一部分的命令 执行命令 完成</span><br><span class="line">设置完成，sudo reboot 手动重启服务器pm2 list 查看验证</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://blog.csdn.net/softwarenb/article/details/80269660" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/softwarenb/article/details/80269660</a></p>
+<h2 id="域名访问"><a href="#域名访问" class="headerlink" title="域名访问"></a>域名访问</h2><p>首先域名要备案，然后解析对应为公网IP，服务器上部署的项目访问端口默认为80，即可域名访问。</p>
+<h3 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h3><p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+<p>Nginx中文文档:<a href="http://www.nginx.cn/doc/" rel="external nofollow noopener noreferrer" target="_blank">http://www.nginx.cn/doc/</a></p>
+<p>安装依赖：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装PCRE，PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。</span></span><br><span class="line"><span class="comment"># nginx的http模块使用pcre来解析正则表达式，pcre-devel是使用pcre开发的一个二次开发库。nginx也需要此库。</span></span><br><span class="line">$ sudo apt-get install libpcre3 libpcre3-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装zlib，zlib库提供了很多种压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip。</span></span><br><span class="line">$ sudo apt-get install zlib1g-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenSSL ，OpenSSL是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协</span></span><br><span class="line"><span class="comment"># 议，并提供丰富的应用程序供测试或其它目的使用，nginx不仅支持http协议，还支持https（即在ssl协议上传输http）</span></span><br><span class="line">$ sudo apt-get install openssl libssl-dev</span><br></pre></td></tr></table></figure></p>
+<p>安装nginx：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install nginx</span><br><span class="line">$ nginx -v  <span class="comment"># nginx version: nginx/1.10.3 (Ubuntu)</span></span><br></pre></td></tr></table></figure></p>
+<p>安装好的文件位置：</p>
+<p>/usr/sbin/nginx：主程序<br>/etc/nginx：存放配置文件<br>/usr/share/nginx：存放静态文件<br>/var/log/nginx：存放日志</p>
+<p>Linux系统的配置文件一般放在/etc，日志一般放在/var/log，运行的程序一般放在/usr/sbin或者/usr/bin。</p>
+<p>可以看到/etc/nginx/nginx.conf 配置 include /etc/nginx/conf.d/*.conf;<br>所以可以在/etc/nginx/conf.d 文件夹下自建个配置，自己命名itguliang.conf<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name www.itguliang.com  itguliang.com;</span><br><span class="line">  location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:3000/;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后执行下面命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nginx -t <span class="comment">#查看配置是否成功</span></span><br><span class="line"><span class="comment"># nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span></span><br><span class="line"><span class="comment"># nginx: configuration file /etc/nginx/nginx.conf test is successful</span></span><br><span class="line">$ systemctl start nginx <span class="comment">#启动nginx 浏览器输入www.itguliang.com 即可看到Welcome to nginx!字样，如果启动了应用服务，则展示对应界面</span></span><br><span class="line">$ systemctl stop nginx  <span class="comment">#停止nginx</span></span><br></pre></td></tr></table></figure></p>
+<p>开机启动和停止：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">enable</span> nginx <span class="comment">#开启 Nginx 随系统一起启动</span></span><br><span class="line">$ sudo systemctl <span class="built_in">disable</span> nginx <span class="comment">#关闭 Nginx随系统启动</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h3><p>阿里云有个单域名免费证书，申请可自动授权系统自动添加TXT解析记录，自动完成域名授权验证，然后下载解压，在/etc/nginx下新建目录cert，然后把crt和key文件上传到cert目录下，配置之前的conf文件如下：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">   listen <span class="number">80</span>;</span><br><span class="line">   server_name itguliang.com www.itguliang.com;</span><br><span class="line">   rewrite ^(.*)$ https:<span class="comment">//www.itguliang.com permanent; </span></span><br><span class="line">   #http://itguliang.com 和 http://www.itguliang.com 都会被重定向到 https://www.itguliang.com</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">   listen <span class="number">443</span>;</span><br><span class="line">   server_name itguliang.com www.itguliang.com;</span><br><span class="line">   ssl on;</span><br><span class="line">   ssl_certificate   /etc/nginx/cert/cert<span class="number">-1541737820369</span>_www.itguliang.com.crt;</span><br><span class="line">   ssl_certificate_key /etc/nginx/cert/cert<span class="number">-1541737820369</span>_www.itguliang.com.key;</span><br><span class="line"></span><br><span class="line">   location / &#123;</span><br><span class="line">     proxy_pass http:<span class="comment">//127.0.0.1:3000/;</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pm2 restart</span><br><span class="line">$ pm2 list</span><br><span class="line">$ pm2 reload all <span class="comment"># 立即重启所有工作进程</span></span><br><span class="line">$ pm2 stop all  <span class="comment"># 停止所有应用</span></span><br><span class="line">$ locate mongo  <span class="comment">#查看mongodb的安装位置</span></span><br><span class="line">$ pgrep mongo -l <span class="comment">#查看是否已经启动mongodb</span></span><br></pre></td></tr></table></figure>
+<h2 id="遇见问题"><a href="#遇见问题" class="headerlink" title="遇见问题"></a>遇见问题</h2><p><strong> Q: Ubuntu保存退出vim编辑器 </strong><br>保存退出：按“Esc”键后 此时的“插入”会消失，然后按Shift+zz 就可以保存修改内容并退出<br>不保存退出：当修改修改了一部分内容后发现修改错了，此时就会进行不保存退出，按“Esc”键后，再输入“：”之后在输入命令时直接输入“q!”<br>强制退出：  按“Esc”键后，再输入“：”之后在输入命令时直接输入“!”</p>
+<p><strong> Q: mongodb connect failed </strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#找到 mongod.lock 的位置 </span></span><br><span class="line">$ locate mongod.lock</span><br><span class="line"><span class="comment">#输出  /var/lib/mongodb/mongod.lock</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#之后 cd /var/lib/mongodb/</span></span><br><span class="line">$ rm mongod.lock</span><br><span class="line">$ rm -r _tmp</span><br><span class="line"></span><br><span class="line"><span class="comment">#也可以尝试着修复下</span></span><br><span class="line">$ mongo -repair</span><br><span class="line"></span><br><span class="line"><span class="comment">#也可以查看一下日志 </span></span><br><span class="line">$ cat  /var/<span class="built_in">log</span>/mongodb/mongodb.log</span><br></pre></td></tr></table></figure></p>
+
+            
+          </div>
+        </div>
+
+        
+        <div class="article-footer-copyright">
+  <div>本文作者：IT姑凉</div>
+  <div>本文链接：<a href="http://www.itguliang.com/post/a0ad69e3.html">http://www.itguliang.com/post/a0ad69e3.html</a></div>
+  <div>本文首发于 <a href="https://itguliang.github.io" rel="external nofollow noopener noreferrer" target="_blank">IT姑凉博客</a> ，如需转载请注明出处，谢谢！</div>
+</div>
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/834a9829.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          小程序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/e8c41f51.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        优化MPMoviePlayerController 全屏播放 退出后 cordova 项目上移
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关概念"><span class="toc-text">相关概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我的配置"><span class="toc-text">我的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令行连接服务器"><span class="toc-text">命令行连接服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建环境"><span class="toc-text">搭建环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-node"><span class="toc-text">安装 node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-mongodb"><span class="toc-text">安装 mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-git"><span class="toc-text">安装 git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pm2-部署"><span class="toc-text">pm2 部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名访问"><span class="toc-text">域名访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-Nginx"><span class="toc-text">安装 Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置https"><span class="toc-text">配置https</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇见问题"><span class="toc-text">遇见问题</span></a></li></ol>
+    </div>
+
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

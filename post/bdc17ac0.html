@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>CodePush 热更新接入教程 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="微软开源，图像化界面：https://www.appcenter.ms/文档：https://www.npmjs.com/package/code-push-cli 安装$ npm install -g code-push-cli # 首先要安装Node.js$ code-push -v #2.1.9 注册账号$ code-push register#Please login to Mobile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodePush 热更新接入教程">
+<meta property="og:url" content="http://www.itguliang.com/post/bdc17ac0.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="微软开源，图像化界面：https://www.appcenter.ms/文档：https://www.npmjs.com/package/code-push-cli 安装$ npm install -g code-push-cli # 首先要安装Node.js$ code-push -v #2.1.9 注册账号$ code-push register#Please login to Mobile">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://img.itguliang.com/static/images/bdc17ac0-1.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/bdc17ac0-2.png">
+<meta property="og:image" content="http://img.itguliang.com/static/images/bdc17ac0-3.png">
+<meta property="og:updated_time" content="2019-03-28T14:58:33.300Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodePush 热更新接入教程">
+<meta name="twitter:description" content="微软开源，图像化界面：https://www.appcenter.ms/文档：https://www.npmjs.com/package/code-push-cli 安装$ npm install -g code-push-cli # 首先要安装Node.js$ code-push -v #2.1.9 注册账号$ code-push register#Please login to Mobile">
+<meta name="twitter:image" content="http://img.itguliang.com/static/images/bdc17ac0-1.png">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+  <div class="post-toc">
+    
+      <article id="post-code-push" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      CodePush 热更新接入教程
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-12-21T16:00:00.000Z" itemprop="datePublished">2018-12-22</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/bdc17ac0.html" class="leancloud_visitors" data-flag-title="CodePush 热更新接入教程"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <p>微软开源，图像化界面：<a href="https://www.appcenter.ms/" rel="external nofollow noopener noreferrer" target="_blank">https://www.appcenter.ms/</a><br>文档：<a href="https://www.npmjs.com/package/code-push-cli" rel="external nofollow noopener noreferrer" target="_blank">https://www.npmjs.com/package/code-push-cli</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g code-push-cli <span class="comment"># 首先要安装Node.js</span></span><br><span class="line">$ code-push -v <span class="comment">#2.1.9</span></span><br></pre></td></tr></table></figure>
+<h2 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push register</span><br><span class="line"><span class="comment">#Please login to Mobile Center in the browser window we've just opened.</span></span><br><span class="line"><span class="comment">#Enter your token from the browser:</span></span><br></pre></td></tr></table></figure>
+<p>会自动打开登录界面，用GitHub登录<br><img src="http://img.itguliang.com/static/images/bdc17ac0-1.png"></p>
+<p>登录后自动打开下面界面，按提示复制token<br><img src="http://img.itguliang.com/static/images/bdc17ac0-2.png"></p>
+<p>将token粘贴到命令行<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push register </span><br><span class="line"></span><br><span class="line">  Please login to Mobile Center <span class="keyword">in</span> the browser window we<span class="string">'ve just opened.</span></span><br><span class="line"><span class="string">  Enter your token from the browser:  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Successfully logged-in. Your session file was written to .../.code-push.config. </span></span><br><span class="line"><span class="string">  You can run the code-push logout command at any time to delete this file and terminate your session.</span></span><br></pre></td></tr></table></figure></p>
+<p>我们使用下面的命令来验证我的登录是否成功<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push login <span class="comment">#如果登录了，会提示 [Error]  You are already logged in from this machine.</span></span><br></pre></td></tr></table></figure></p>
+<p>CodePush注册登录相关命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push whoami</span><br><span class="line">$ code-push login  <span class="comment">#登陆</span></span><br><span class="line">$ code-push <span class="built_in">logout</span> <span class="comment">#注销</span></span><br><span class="line">$ code-push access-key ls <span class="comment">#列出登陆的token</span></span><br><span class="line">$ code-push access-key rm <span class="comment">#删除某个 access-key</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="注册App"><a href="#注册App" class="headerlink" title="注册App"></a>注册App</h2><p>在CodePush服务器注册App<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push app add &lt;appName&gt; &lt;os&gt; &lt;platform&gt; </span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line"><span class="comment"># code-push app add MyApp-iOS ios react-native     添加 iOS(os)、react-native(platform) 应用</span></span><br><span class="line"><span class="comment"># code-push app add MyApp-Android android cordova  添加 android(os)、cordova(platform) 应用</span></span><br></pre></td></tr></table></figure></p>
+<p>图形化界面：<br><img src="http://img.itguliang.com/static/images/bdc17ac0-3.png"></p>
+<p>CodePush管理App的相关命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push app remove/rm &lt;appName&gt; <span class="comment">#在账号里移除一个app</span></span><br><span class="line">$ code-push app rename &lt;appName&gt; &lt;newAppName&gt;     <span class="comment">#重命名一个存在app</span></span><br><span class="line">$ code-push app list/ls    <span class="comment">#列出账号下面的所有app</span></span><br><span class="line">$ code-push app transfer &lt;appName&gt; &lt;newOwnerEmail&gt; <span class="comment">#把app的所有权转移到另外一个账号</span></span><br><span class="line">$ code-push collaborator add &lt;appName&gt; &lt;collaboratorEmail&gt; <span class="comment">#添加协作者</span></span><br><span class="line">$ code-push collaborator rm &lt;appName&gt; &lt;collaboratorEmail&gt;  <span class="comment">#删除协作者</span></span><br><span class="line">$ code-push collaborator ls &lt;appName&gt; <span class="comment">#列出应用下列出所有的参与者</span></span><br></pre></td></tr></table></figure></p>
+<p>开发环境管理:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push deployment add &lt;appName&gt; &lt;deploymentName&gt; <span class="comment">#增加开发环境</span></span><br><span class="line">$ code-push deployment rm &lt;appName&gt; &lt;deploymentName&gt;  <span class="comment">#移除开发环境</span></span><br><span class="line">$ code-push deployment rename &lt;appName&gt; &lt;deploymentName&gt; &lt;newDeploymentName&gt;  <span class="comment">#开发环境换名字</span></span><br><span class="line">$ code-push deployment ls &lt;appName&gt;  <span class="comment">#列出所有的开发环境</span></span><br><span class="line">$ code-push deployment ls &lt;appName&gt; --displayKeys/-k     <span class="comment">#列出所有的开发环境和对应access-key</span></span><br><span class="line">$ code-push deployment clear &lt;appName&gt; &lt;deploymentName&gt;  <span class="comment">#清除更新记录</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="React-Native集成"><a href="#React-Native集成" class="headerlink" title="React-Native集成"></a>React-Native集成</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install react-native-code-push --save</span><br><span class="line">$ react-native link react-native-code-push</span><br></pre></td></tr></table></figure>
+<h2 id="Cordova集成"><a href="#Cordova集成" class="headerlink" title="Cordova集成"></a>Cordova集成</h2><p>cordova-plugin-code-push: <a href="https://github.com/Microsoft/cordova-plugin-code-push" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/Microsoft/cordova-plugin-code-push</a></p>
+<p>(网上很多用这个<a href="https://github.com/nordnet/cordova-hot-code-push，可以试试" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/nordnet/cordova-hot-code-push，可以试试</a>)</p>
+<ul>
+<li>Android (cordova-android 4.0.0+)</li>
+<li>iOS (cordova-ios 3.9.0+) </li>
+</ul>
+<!-- $ cordova plugin add cordova-hot-code-push-plugin #添加cordova-hot-code-push插件
+$ cordova  plugin add cordova-hot-code-push-local-dev-addon #添加用于本地开发的插件
+$ npm install -g cordova-hot-code-push-cli  #安装Cordova Hot Code Push CLI客户端 -->
+<p>安装：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cordova plugin add cordova-plugin-code-push@latest</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ code-push release-cordova &lt;appName&gt; &lt;platform&gt; [options]</span><br><span class="line"><span class="comment"># 选项：</span></span><br><span class="line"><span class="comment">#   --build, -b                 [布尔-默认:false] Invoke "cordova build" instead of "cordova prepare"</span></span><br><span class="line"><span class="comment">#   --isReleaseBuildType, --rb  [布尔-默认:false] If "build" option is true specifies whether perform a release build</span></span><br><span class="line"><span class="comment">#   --deploymentName, -d        [字符串-默认:"Staging"] Deployment</span></span><br><span class="line"><span class="comment">#   --description, --des        [字符串-默认:null] 描述</span></span><br><span class="line"><span class="comment">#   --disabled, -x              [布尔-默认:false] Specifies whether this release should be immediately downloadable</span></span><br><span class="line"><span class="comment">#   --mandatory, -m             [布尔-默认:false] Specifies whether this release should be considered mandatory</span></span><br><span class="line"><span class="comment">#   --privateKeyPath, -k        Specifies the location of a RSA private key to sign the release with  [字符串] [默认值: false]</span></span><br><span class="line"><span class="comment">#   --noDuplicateReleaseError   [布尔-默认:false] When this flag is set, releasing a package that is identical to the latest release will produce a warning instead of an error</span></span><br><span class="line"><span class="comment">#   --rollout, -r               Percentage of users this release should be immediately available to  [字符串] [默认值: "100%"]</span></span><br><span class="line"><span class="comment">#   --targetBinaryVersion, -t   [字符串-默认:null] Semver expression that specifies the binary app version(s) this release is targeting (e.g. 1.1.0, ~1.2.3). If omitted, the release will target the exact version specified in the config.xml file.</span></span><br><span class="line"><span class="comment">#   -v, --version               显示版本号  [布尔]</span></span><br></pre></td></tr></table></figure>
+<p>更多命令详见：<a href="https://github.com/Microsoft/code-push/tree/master/cli" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/Microsoft/code-push/tree/master/cli</a></p>
+<!-- 
+
+https://www.jianshu.com/p/6a5e00d22723 
+
+https://www.cnblogs.com/huangenai/p/7137475.html
+
+https://blog.csdn.net/jiangbo_phd/article/details/52692320
+
+-->
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/f1da163e.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          『小事记』· 2018
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/b0fc5aa.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        Cordova Android 端保存cookie 延时
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册账号"><span class="toc-text">注册账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册App"><span class="toc-text">注册App</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Native集成"><span class="toc-text">React-Native集成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cordova集成"><span class="toc-text">Cordova集成</span></a></li></ol>
+    </div>
+
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

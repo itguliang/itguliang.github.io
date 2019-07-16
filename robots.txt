@@ -1,0 +1,15 @@
+
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /post/
+Allow: /tags/
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /fancybox/
+
+Sitemap: https://itguliang.github.io/sitemap.xml
+Sitemap: https://itguliang.github.io/baidusitemap.xml

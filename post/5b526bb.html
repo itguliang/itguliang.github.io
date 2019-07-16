@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>Hexo搭建博客常见问题 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本命令备注下：hexo new “postName” #新建文章hexo new draft “new draft” #新建草稿(config.xml render_drafts 参数设为 true 预览草稿，或者hexo server –drafts)hexo new page “pageName” #新建页面hexo cleanhexo generate #生成静态页面至public目录he">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搭建博客常见问题">
+<meta property="og:url" content="http://www.itguliang.com/post/5b526bb.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="基本命令备注下：hexo new “postName” #新建文章hexo new draft “new draft” #新建草稿(config.xml render_drafts 参数设为 true 预览草稿，或者hexo server –drafts)hexo new page “pageName” #新建页面hexo cleanhexo generate #生成静态页面至public目录he">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-03-22T01:26:21.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo搭建博客常见问题">
+<meta name="twitter:description" content="基本命令备注下：hexo new “postName” #新建文章hexo new draft “new draft” #新建草稿(config.xml render_drafts 参数设为 true 预览草稿，或者hexo server –drafts)hexo new page “pageName” #新建页面hexo cleanhexo generate #生成静态页面至public目录he">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+  <div class="post-toc">
+    
+      <article id="post-blog-hexo" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo搭建博客常见问题
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-05-08T16:00:00.000Z" itemprop="datePublished">2018-05-09</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/5b526bb.html" class="leancloud_visitors" data-flag-title="Hexo搭建博客常见问题"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><p>备注下：<br>hexo new “postName” #新建文章<br>hexo new draft “new draft” #新建草稿<br>(config.xml render_drafts 参数设为 true 预览草稿，或者hexo server –drafts)<br>hexo new page “pageName” #新建页面<br>hexo clean<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub</p>
+<p>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
+<p>hexo publish [layout] <filename> #草稿变成文章</filename></p>
+<h1 id="流程图插件"><a href="#流程图插件" class="headerlink" title="流程图插件"></a>流程图插件</h1><p><a href="https://github.com/bubkoo/hexo-filter-flowchart" rel="external nofollow noopener noreferrer" target="_blank">hexo-filter-flowchart</a><br><a href="https://github.com/bubkoo/hexo-filter-sequence" rel="external nofollow noopener noreferrer" target="_blank">hexo-filter-sequence</a></p>
+<h1 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h1><p>可以在主题对应source文件夹下建立404.html</p>
+<h1 id="版权信息配置"><a href="#版权信息配置" class="headerlink" title="版权信息配置"></a>版权信息配置</h1><p><code>layout\_partial\post\</code>目录下新建 <code>copyright.ejs</code> 内如如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-footer-copyright"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>本文作者：IT姑凉<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>本文链接：<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%- url_for(post.permalink) %&gt;"</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">post.permalink</span> %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>本文首发于 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://itguliang.github.io"</span>&gt;</span>IT姑凉博客<span class="tag">&lt;/<span class="name">a</span>&gt;</span> ，如需转载请注明出处，谢谢！<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>layout\_partial\article.ejs</code>文件下合适位置添加如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index &amp;&amp; post.copyright==<span class="literal">true</span>)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'post/copyright'</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>样式自己对应修改</p>
+<p>最后，只要在需要添加版权信息的文章中，添加 <code>copyright: true</code> 即可显示版权信息。</p>
+<h1 id="反垃圾链接"><a href="#反垃圾链接" class="headerlink" title="反垃圾链接"></a>反垃圾链接</h1><p>安装插件 <code>hexo-autonofollow</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-autonofollow --save</span><br></pre></td></tr></table></figure>
+<p><code>_config.xml</code>中添加如下字段：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">nofollow:</span><br><span class="line">    enable: true</span><br><span class="line">    exclude:</span><br><span class="line">    - 友链地址</span><br></pre></td></tr></table></figure>
+<h1 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">permalink: post/:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment">// 算法：crc16(default) and crc32</span></span><br><span class="line">  rep: hex    <span class="comment">// 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure>
+<p>样例：<br>crc16 &amp; hex<br>posts/66c8.html<br>crc16 &amp; dec<br>posts/65535.html<br>crc32 &amp; hex<br>posts/8ddf18fb.html<br>crc32 &amp; dec<br>posts/1690090958.html</p>
+<h1 id="添加友情链接"><a href="#添加友情链接" class="headerlink" title="添加友情链接"></a>添加友情链接</h1><p>在根目录<code>_config.yml</code>文件，添加链接内容如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">links:</span></span><br><span class="line">   <span class="string">IT姑凉's</span> <span class="attr">Blog:</span> <span class="attr">https://itguliang.github.io</span></span><br></pre></td></tr></table></figure>
+<p>添加主题布局文件</p>
+<p>将友情链接放到右侧的sidebar中，于是需要在主题目录下的<code>layout/_widget</code>中添加文件<code>links.ejs</code>，内容如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.links)&#123; %&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"widget-wrap"</span>&gt;</span><br><span class="line">    &lt;h3 <span class="class"><span class="keyword">class</span></span>=<span class="string">"widget-title"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">__</span>('友链') %&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"widget"</span>&gt;</span><br><span class="line">      &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"entry"</span>&gt;</span><br><span class="line">        &lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> theme.links)&#123; %&gt;</span><br><span class="line">          &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">'link'</span>&gt;</span><br><span class="line">            &lt;a target=<span class="string">"_blank"</span> href=<span class="string">'&lt;%- theme.links[i] %&gt;'</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">i</span> %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">          &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;% &#125; %&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/u</span>l&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>在对应的主题目录下的<code>_config.yml</code>文件中widgets下添加上links</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">widgets:</span><br><span class="line">- links</span><br></pre></td></tr></table></figure>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>七牛云+<a href="https://github.com/gyk001/hexo-qiniu-sync" rel="external nofollow noopener noreferrer" target="_blank">hexo-qiniu-sync</a></p>
+<h1 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h1><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>自己添加</p>
+<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p>Valine 是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
+<p>地址：<a href="https://valine.js.org/" rel="external nofollow noopener noreferrer" target="_blank">https://valine.js.org/</a></p>
+<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>网上查了一下，用不蒜子，不过暂时好像不开放注册，先备注下，后期加上<br><a href="http://busuanzi.ibruce.info/" rel="external nofollow noopener noreferrer" target="_blank">http://busuanzi.ibruce.info/</a><br>暂时先用leancloud</p>
+<h2 id="返回顶部"><a href="#返回顶部" class="headerlink" title="返回顶部"></a>返回顶部</h2><p>界面：<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"back-to-top"</span> <span class="attr">id</span>=<span class="string">"back-to-top"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-arrow-up"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>js:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> backButton=$(<span class="string">'#back-to-top'</span>);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">backToTop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'html,body'</span>).animate(&#123;</span><br><span class="line">      scrollTop: <span class="number">0</span></span><br><span class="line">    &#125;, <span class="number">800</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  backButton.on(<span class="string">'click'</span>, backToTop);</span><br><span class="line">        </span><br><span class="line">  $(<span class="built_in">window</span>).on(<span class="string">'scroll'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($(<span class="built_in">window</span>).scrollTop() &gt; $(<span class="built_in">window</span>).height())</span><br><span class="line">      backButton.fadeIn();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      backButton.fadeOut();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="只需改变源码repo自动deploy-未完成"><a href="#只需改变源码repo自动deploy-未完成" class="headerlink" title="只需改变源码repo自动deploy(未完成)"></a>只需改变源码repo自动deploy(未完成)</h2><p><a href="https://formulahendry.github.io/2016/12/04/hexo-ci/#" rel="external nofollow noopener noreferrer" target="_blank">https://formulahendry.github.io/2016/12/04/hexo-ci/#</a></p>
+<p>参考：<br><a href="https://segmentfault.com/a/1190000006057336" rel="external nofollow noopener noreferrer" target="_blank">https://segmentfault.com/a/1190000006057336</a><br><a href="http://www.ituring.com.cn/article/199295" rel="external nofollow noopener noreferrer" target="_blank">http://www.ituring.com.cn/article/199295</a><br><a href="https://hexo.io/zh-cn/docs/helpers.html" rel="external nofollow noopener noreferrer" target="_blank">https://hexo.io/zh-cn/docs/helpers.html</a><br><a href="http://linbinghe.com/2017/982b12f0.html" rel="external nofollow noopener noreferrer" target="_blank">http://linbinghe.com/2017/982b12f0.html</a></p>
+
+            
+          </div>
+        </div>
+
+        
+        <div class="article-footer-copyright">
+  <div>本文作者：IT姑凉</div>
+  <div>本文链接：<a href="http://www.itguliang.com/post/5b526bb.html">http://www.itguliang.com/post/5b526bb.html</a></div>
+  <div>本文首发于 <a href="https://itguliang.github.io" rel="external nofollow noopener noreferrer" target="_blank">IT姑凉博客</a> ，如需转载请注明出处，谢谢！</div>
+</div>
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/5e934b3b.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          react-native开发(一)--基本组件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/564a1981.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        『小事记』· 2017
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本命令"><span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流程图插件"><span class="toc-text">流程图插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404页面"><span class="toc-text">404页面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#版权信息配置"><span class="toc-text">版权信息配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反垃圾链接"><span class="toc-text">反垃圾链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#永久链接"><span class="toc-text">永久链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加友情链接"><span class="toc-text">添加友情链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图床"><span class="toc-text">图床</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他功能"><span class="toc-text">其他功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打赏"><span class="toc-text">打赏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#评论"><span class="toc-text">评论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计"><span class="toc-text">统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回顶部"><span class="toc-text">返回顶部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#只需改变源码repo自动deploy-未完成"><span class="toc-text">只需改变源码repo自动deploy(未完成)</span></a></li></ol></li></ol>
+    </div>
+
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

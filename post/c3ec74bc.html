@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>纯CSS制作箭头(空心、实心、任意大小、任意方向) - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="项目中要实现个角度没那么尖尖的箭头，不想用图标，试着纯CSS实现下，transform matrix不是很懂这个语法，后期再看吧哈哈，反正先实现效果。 效果图： 源码：可复制到 http://www.runoob.com/try/try.php?filename=trycss3_transform_rotate 查看运行结果 也可用伪元素 before after 实现 &amp;lt;!DOCTYPE">
+<meta name="keywords" content="Html&#x2F;Css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯CSS制作箭头(空心、实心、任意大小、任意方向)">
+<meta property="og:url" content="http://www.itguliang.com/post/c3ec74bc.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="项目中要实现个角度没那么尖尖的箭头，不想用图标，试着纯CSS实现下，transform matrix不是很懂这个语法，后期再看吧哈哈，反正先实现效果。 效果图： 源码：可复制到 http://www.runoob.com/try/try.php?filename=trycss3_transform_rotate 查看运行结果 也可用伪元素 before after 实现 &amp;lt;!DOCTYPE">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://img.itguliang.com/static/images/c3ec74bc-1.png">
+<meta property="og:updated_time" content="2019-01-15T09:18:06.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯CSS制作箭头(空心、实心、任意大小、任意方向)">
+<meta name="twitter:description" content="项目中要实现个角度没那么尖尖的箭头，不想用图标，试着纯CSS实现下，transform matrix不是很懂这个语法，后期再看吧哈哈，反正先实现效果。 效果图： 源码：可复制到 http://www.runoob.com/try/try.php?filename=trycss3_transform_rotate 查看运行结果 也可用伪元素 before after 实现 &amp;lt;!DOCTYPE">
+<meta name="twitter:image" content="http://img.itguliang.com/static/images/c3ec74bc-1.png">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+    <div class="post">
+      
+      <article id="post-css-arrow" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      纯CSS制作箭头(空心、实心、任意大小、任意方向)
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-07-16T16:00:00.000Z" itemprop="datePublished">2018-07-17</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/c3ec74bc.html" class="leancloud_visitors" data-flag-title="纯CSS制作箭头(空心、实心、任意大小、任意方向)"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <p>项目中要实现个角度没那么尖尖的箭头，不想用图标，试着纯CSS实现下，transform matrix不是很懂这个语法，后期再看吧哈哈，反正先实现效果。</p>
+<p>效果图：<br><img src="http://img.itguliang.com/static/images/c3ec74bc-1.png"></p>
+<p>源码：<br>可复制到 <a href="http://www.runoob.com/try/try.php?filename=trycss3_transform_rotate" rel="external nofollow noopener noreferrer" target="_blank">http://www.runoob.com/try/try.php?filename=trycss3_transform_rotate</a> 查看运行结果</p>
+<p>也可用伪元素 before after 实现</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>css制作空心的上下左右的箭头<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    div&#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">margin-top</span><span class="selector-pseudo">:20px</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    span&#123;</span></span><br><span class="line"><span class="css">    	<span class="selector-tag">display</span><span class="selector-pseudo">:inline-block</span>;</span></span><br><span class="line"><span class="undefined">    	width: 15px;</span></span><br><span class="line"><span class="undefined">    	height: 15px;</span></span><br><span class="line"><span class="css">    	<span class="selector-tag">margin-right</span><span class="selector-pseudo">:40px</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.border</span>&#123;</span></span><br><span class="line"><span class="undefined">    	border-top: 2px solid red;</span></span><br><span class="line"><span class="undefined">    	border-right: 2px solid red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.up</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(-45deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.down</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(135deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(-135deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.right</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(45deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.up1</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(-45deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.up1</span> <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="css">    	<span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(1,0<span class="selector-class">.3</span>,0<span class="selector-class">.3</span>,1,4,<span class="selector-tag">-5</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.down1</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(135deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.down1</span> <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="css">    	<span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(1,0<span class="selector-class">.3</span>,0<span class="selector-class">.3</span>,1,<span class="selector-tag">-5</span>,1);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.left1</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(-135deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.left1</span> <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="css">    	<span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(1,0<span class="selector-class">.3</span>,0<span class="selector-class">.3</span>,1,<span class="selector-tag">-4</span>,4);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.right1</span>&#123;</span></span><br><span class="line"><span class="undefined">    	transform: rotate(45deg);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.right1</span> <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="css">    	<span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(1,0<span class="selector-class">.3</span>,0<span class="selector-class">.3</span>,1,4,<span class="selector-tag">-6</span>)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border up"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border down"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border left"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border right"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"up1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"down1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"left1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"right1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"border"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/a0de71c0.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          一个前端开发者的Mac装机清单及常用操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/adf0756b.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        Html5 Audio 和 Video 属性事件汇总
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

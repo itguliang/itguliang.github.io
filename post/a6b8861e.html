@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>Node 微信公众号开发 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、服务器配置接入URL验证const TOKEN=&apos;你在微信公众号设置的token值&apos;; function checkSignature(params,token)&amp;#123;    var key=[token,params.timestamp,params.nonce].sort().join(&apos;&apos;);      //将token （自己设置的） 、timestamp（时间戳）、nonce（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node 微信公众号开发">
+<meta property="og:url" content="http://www.itguliang.com/post/a6b8861e.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="1、服务器配置接入URL验证const TOKEN=&apos;你在微信公众号设置的token值&apos;; function checkSignature(params,token)&amp;#123;    var key=[token,params.timestamp,params.nonce].sort().join(&apos;&apos;);      //将token （自己设置的） 、timestamp（时间戳）、nonce（">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-01-14T03:02:21.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node 微信公众号开发">
+<meta name="twitter:description" content="1、服务器配置接入URL验证const TOKEN=&apos;你在微信公众号设置的token值&apos;; function checkSignature(params,token)&amp;#123;    var key=[token,params.timestamp,params.nonce].sort().join(&apos;&apos;);      //将token （自己设置的） 、timestamp（时间戳）、nonce（">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+    <div class="post">
+      
+      <article id="post-weixin-gongzhonghao" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Node 微信公众号开发
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-10-31T16:00:00.000Z" itemprop="datePublished">2018-11-01</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/a6b8861e.html" class="leancloud_visitors" data-flag-title="Node 微信公众号开发"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <h3 id="1、服务器配置接入URL验证"><a href="#1、服务器配置接入URL验证" class="headerlink" title="1、服务器配置接入URL验证"></a>1、服务器配置接入URL验证</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> TOKEN=<span class="string">'你在微信公众号设置的token值'</span>; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSignature</span>(<span class="params">params,token</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> key=[token,params.timestamp,params.nonce].sort().join(<span class="string">''</span>); </span><br><span class="line">     <span class="comment">//将token （自己设置的） 、timestamp（时间戳）、nonce（随机数）三个参数进行字典排序</span></span><br><span class="line">    <span class="keyword">var</span> sha1=<span class="built_in">require</span>(<span class="string">'crypto'</span>).createHash(<span class="string">'sha1'</span>);</span><br><span class="line">     <span class="comment">//将上面三个字符串拼接成一个字符串再进行sha1加密</span></span><br><span class="line">    sha1.update(key);</span><br><span class="line">    <span class="keyword">return</span> sha1.digest(<span class="string">'hex'</span>) ==params.signature;</span><br><span class="line">     <span class="comment">//将加密后的字符串与signature进行对比，若成功，返回echostr</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// url填写：地址接口/weixin 或者 域名/weixin</span></span><br><span class="line">router.get(<span class="string">'/weixin'</span>,(req,res) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.query)</span><br><span class="line">    <span class="keyword">var</span> params=req.query;</span><br><span class="line">    <span class="keyword">if</span>(!checkSignature(params,TOKEN))&#123;</span><br><span class="line">        <span class="comment">//如果签名不对，结束请求并返回</span></span><br><span class="line">        res.end(<span class="string">'signature fail'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (req.method == <span class="string">"GET"</span>) &#123;</span><br><span class="line">        <span class="comment">//如果请求是GET，返回echostr用于通过服务器有效校验</span></span><br><span class="line">        res.end(params.echostr);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//否则是微信给开发者服务器的POST请求</span></span><br><span class="line">        <span class="keyword">var</span> postdata=<span class="string">''</span>;</span><br><span class="line">        req.addListener(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">postchunk</span>)</span>&#123;</span><br><span class="line">            postdata+=postchunk;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//获取到了POST数据</span></span><br><span class="line">        req.addListener(<span class="string">"end"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(postdata);</span><br><span class="line">            res.end(<span class="string">'success '</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以将上述代码整合到某个项目后端代码中，或者单独项目都OK，启动服务访问</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、自定义消息回复"><a href="#2、自定义消息回复" class="headerlink" title="2、自定义消息回复"></a>2、自定义消息回复</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> parseString = <span class="built_in">require</span>(<span class="string">'xml2js'</span>).parseString;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> messageJson=[</span><br><span class="line">  <span class="string">"IT交流群：123493055"</span>,</span><br><span class="line">  <span class="string">"要我照片？肿么可能，哈哈，上当了吧~"</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> returnCon=<span class="string">"感谢您的关注：\n加群回复【0】\n看我照片回复【1】"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">returnText</span>(<span class="params">toUser, fromUser, content</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> xmlContent = <span class="string">`&lt;xml&gt;&lt;ToUserName&gt;&lt;![CDATA[<span class="subst">$&#123;toUser&#125;</span>]]&gt;&lt;/ToUserName&gt;</span></span><br><span class="line"><span class="string">    &lt;FromUserName&gt;&lt;![CDATA[<span class="subst">$&#123;fromUser&#125;</span>]]&gt;&lt;/FromUserName&gt;</span></span><br><span class="line"><span class="string">    &lt;CreateTime&gt;<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>().getTime()&#125;</span>&lt;/CreateTime&gt;</span></span><br><span class="line"><span class="string">    &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;</span></span><br><span class="line"><span class="string">    &lt;Content&gt;&lt;![CDATA[<span class="subst">$&#123;content&#125;</span>]]&gt;&lt;/Content&gt;&lt;/xml&gt;`</span>;</span><br><span class="line">    <span class="keyword">return</span> xmlContent;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleAutoReply</span>(<span class="params">res, toUser, fromUser, keyword</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> messageMap = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(messageJson));</span><br><span class="line">    <span class="keyword">let</span> content = messageJson[keyword];</span><br><span class="line">    <span class="keyword">if</span> (!content) &#123;</span><br><span class="line">        content=returnCon;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> xml = returnText(toUser, fromUser, content);</span><br><span class="line">    res.send(xml); </span><br><span class="line">&#125;</span><br><span class="line">router.post(<span class="string">'/weixin'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> postdata=<span class="string">''</span>;</span><br><span class="line">        <span class="comment">// 监听data事件，用于接收数据，用req.body是拿不到数据的</span></span><br><span class="line">        req.on(<span class="string">'data'</span>, (postchunk) =&gt; &#123;</span><br><span class="line">            postdata+=postchunk;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 监听end事件，用于处理接收完成的数据</span></span><br><span class="line">        req.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">            parseString(postdata, (err, result) =&gt; &#123;</span><br><span class="line">                <span class="comment">// 处理错误</span></span><br><span class="line">                <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'解析微信服务器发来的消息出错了：'</span>);</span><br><span class="line">                    <span class="built_in">console</span>.log(err);</span><br><span class="line">                    res.send(<span class="string">'success'</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!result || !result.xml) &#123;</span><br><span class="line">                    <span class="comment">// 未接收到有效消息，告诉微信服务器不要再尝试连接</span></span><br><span class="line">                    res.send(<span class="string">'success'</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'未接收到任何消息也未发生任何事件'</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                result = result.xml;</span><br><span class="line">                <span class="comment">// 接收方微信（注意接收方和发送方的转换）</span></span><br><span class="line">                <span class="keyword">let</span> toUser = result.FromUserName;</span><br><span class="line">                <span class="comment">// 发送方微信</span></span><br><span class="line">                <span class="keyword">let</span> fromUser = result.ToUserName;</span><br><span class="line">                <span class="keyword">let</span> userMessage = result.Content;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'-----------------------开始处理消息-----------------------'</span>);</span><br><span class="line">                <span class="keyword">if</span> (result.Event == <span class="string">'subscribe'</span>) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'--------------------有用户关注了---------------------------'</span>);</span><br><span class="line">                    handleAutoReply(res, toUser, fromUser, returnCon);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 其他消息</span></span><br><span class="line">                    <span class="keyword">if</span> (result.MsgType != <span class="string">'text'</span>) &#123;</span><br><span class="line">                        res.send(<span class="string">'success'</span>);</span><br><span class="line">                        <span class="built_in">console</span>.log(<span class="string">'------------------不是文本类型的消息暂不处理----------------------'</span>);</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 文本消息</span></span><br><span class="line">                    <span class="comment">// 这里可以处理一些特殊回复，比如发送编码查询等</span></span><br><span class="line">                    <span class="comment">// 处理关键词自动回复</span></span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'-----------------------现在处理关键词回复------------------------'</span>);</span><br><span class="line">                    handleAutoReply(res, toUser, fromUser, userMessage);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        res.send(<span class="string">'success'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/9ff6bdc8.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          解决问题集锦-React
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/834a9829.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        小程序
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

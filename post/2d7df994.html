@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>HTML5+Canvas 模仿微信运动折线图代码 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="点击按钮查看效果（点击折线图试试效果）： 按周显示按月显示       var data1 = [9, 12, 10, 29, 33, 17, 6];     var data2 = [9, 12, 14, 17, 10, 29, 33, 17, 40, 6,                  9, 12, 14, 17, 10, 29, 33, 17, 40, 6,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5+Canvas 模仿微信运动折线图代码">
+<meta property="og:url" content="http://www.itguliang.com/post/2d7df994.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="点击按钮查看效果（点击折线图试试效果）： 按周显示按月显示       var data1 = [9, 12, 10, 29, 33, 17, 6];     var data2 = [9, 12, 14, 17, 10, 29, 33, 17, 40, 6,                  9, 12, 14, 17, 10, 29, 33, 17, 40, 6,">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-03-23T06:06:12.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5+Canvas 模仿微信运动折线图代码">
+<meta name="twitter:description" content="点击按钮查看效果（点击折线图试试效果）： 按周显示按月显示       var data1 = [9, 12, 10, 29, 33, 17, 6];     var data2 = [9, 12, 14, 17, 10, 29, 33, 17, 40, 6,                  9, 12, 14, 17, 10, 29, 33, 17, 40, 6,">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+    <div class="post">
+      
+      <article id="post-h5-canvas-wechat-line" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5+Canvas 模仿微信运动折线图代码
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2019-01-15T16:00:00.000Z" itemprop="datePublished">2019-01-16</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/2d7df994.html" class="leancloud_visitors" data-flag-title="HTML5+Canvas 模仿微信运动折线图代码"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <p>点击按钮查看效果（点击折线图试试效果）：</p>
+<p><button onclick="week()" style="display: inline-block;
+    border: 1px solid grey;cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px 0 0;outline:none;">按周显示</button><button onclick="month()" style="display: inline-block;
+    border: 1px solid grey;cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px 0 0;outline:none;">按月显示</button></p>
+<p><canvas id="canvas-line" style="width:100%;"></canvas></p>
+<script>
+    var data1 = [9, 12, 10, 29, 33, 17, 6];
+    var data2 = [9, 12, 14, 17, 10, 29, 33, 17, 40, 6,
+                 9, 12, 14, 17, 10, 29, 33, 17, 40, 6,
+                 9, 12, 14, 17, 10, 29, 33, 17, 40, 6];
+    var cv = document.getElementById("canvas-line");
+        cv.width = cv.offsetWidth*2;
+        cv.height = 3 * cv.width / 5;
+        // canvas坐标原点在左上角
+        var padding = 16,  //边距
+        n = 4,//上下距离n个padding
+        x1 = padding,  //横线左边点x坐标
+        x2 = cv.width - padding,  //横线右边边点x坐标
+        y1 = n * padding,  //竖向上边点y坐标
+        y2 = cv.height - n * padding,  //竖向下边点y坐标
+        xLength = cv.width - 3 * padding,    //x轴的长度
+        yLength = cv.height - 3 * n * padding;  //y轴的长度
+
+    var maxNum;//求数组中的最大值
+    var pointsWidth;//折线上每个点之间的距离
+
+    var ctx = cv.getContext("2d");
+
+    var data;
+
+    function draw(rankdata){
+        data=rankdata;
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "white";
+
+        //填充背景颜色
+        var grd = ctx.createLinearGradient(0, 0, cv.height, 0);
+        grd.addColorStop(0.1, "#21BBB1");
+        grd.addColorStop(0.9, "#0E8FA2");
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, cv.width, cv.height);
+
+        //顶部line 
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y1);
+        ctx.stroke();
+
+        //底部line
+        ctx.moveTo(x1, y2);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        //中断（坐标轴和折线的）连接
+        ctx.beginPath();
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 3;
+
+        maxNum = Math.max.apply(null, data);//求数组中的最大值
+        pointsWidth = xLength / (data.length - 1);//折线上每个点之间的距离
+
+        for (var i = 0; i < data.length; i++) {
+            var pointX = padding + i * pointsWidth;
+            var pointY = 2* n * padding + (1 - data[i] / maxNum) * yLength;
+
+            ctx.lineTo(pointX, pointY);//折线
+
+            if( (i==0) ||(data.length<=7)||(data.length>7 && (i+1)%5==0)){
+                ctx.fillText(i + 1, pointX-5, y2 + 40); //横轴
+                ctx.textAlign = "center";
+            }
+            ctx.stroke();
+
+            // 圆点
+            ctx.beginPath();
+            ctx.arc(pointX, pointY, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.moveTo(pointX, pointY);
+        }
+
+        // 折线阴影
+        ctx.beginPath();
+        ctx.moveTo(x1, y2);
+        for (var i = 0; i < data.length; i++) {
+            var pointX = padding + i * pointsWidth;
+            var pointY = 2*n* padding + (1 - data[i] / maxNum) * yLength;
+            ctx.lineTo(pointX, pointY);//折线
+            if(i==data.length-1){
+                ctx.lineTo(pointX, y2);
+            }
+        }
+        ctx.globalAlpha = 0; 
+        ctx.lineTo(x1, y2);
+        ctx.globalAlpha = 0.1;
+        ctx.fillStyle = "white";
+        ctx.fill();
+    }
+
+    function clearCanvas(){  
+        cv=document.getElementById("canvas-line");  
+        cxt=cv.getContext("2d");  
+        cv.height=cv.height; 
+        ctx.clearRect(0,0,cv.width,cv.height);  
+    }  
+
+    function week(){
+        clearCanvas();
+        draw(data1);
+    }
+    function month(){
+        clearCanvas();
+        draw(data2);
+    }
+    var animateX=0;
+    var animateY=0;
+    var animateText=0;
+    cv.addEventListener('click', function (e) {
+          console.log(e);
+          var index=Math.round((data.length-1) * (e.layerX-padding/2) / (cv.offsetWidth -  2* padding/2));
+          animateX = padding + index * pointsWidth;
+          animateY = 2*n*padding + (1 - data[index] / maxNum) * yLength;
+          animateText= data[index];
+          console.log(animateX+"--"+animateY);
+          animate();
+    }, false);
+
+        // 点击动画
+    function animate() {
+          clearCanvas();
+          draw(data);
+          animateY = animateY-10;
+          ctx.fillStyle = "white";
+          ctx.font = "35px Arial";
+          ctx.globalAlpha = 0.5;
+          ctx.fillText(animateText, animateX, animateY); //横轴
+          if (animateY >= 7*padding) {
+            window.requestAnimationFrame(animate,cv);
+          }
+    }
+    week();
+</script>
+
+<p>源码（可直接保存到本地运行查看）：<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML5+Canvas模仿微信运动折线图代码<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">button&#123;</span></span><br><span class="line"><span class="undefined">    display: inline-block;</span></span><br><span class="line"><span class="undefined">    border: 1px solid grey;cursor: pointer;</span></span><br><span class="line"><span class="undefined">    padding: 5px;</span></span><br><span class="line"><span class="undefined">    border-radius: 5px;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">margin</span>: 0 10<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> 0;<span class="selector-tag">outline</span><span class="selector-pseudo">:none</span>;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">点击按钮查看效果：</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"week()"</span>&gt;</span>按周显示<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"month()"</span>&gt;</span>按月显示<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">'canvas-line'</span> <span class="attr">style</span>=<span class="string">"width:100%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> data1 = [<span class="number">9</span>, <span class="number">12</span>, <span class="number">10</span>, <span class="number">29</span>, <span class="number">33</span>, <span class="number">17</span>, <span class="number">6</span>];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> data2 = [<span class="number">9</span>, <span class="number">12</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">10</span>, <span class="number">29</span>, <span class="number">33</span>, <span class="number">17</span>, <span class="number">40</span>, <span class="number">6</span>,</span></span><br><span class="line"><span class="undefined">                 9, 12, 14, 17, 10, 29, 33, 17, 40, 6,</span></span><br><span class="line"><span class="undefined">                 9, 12, 14, 17, 10, 29, 33, 17, 40, 6];</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> cv = <span class="built_in">document</span>.getElementById(<span class="string">"canvas-line"</span>);</span></span><br><span class="line"><span class="undefined">        cv.width = cv.offsetWidth*2;</span></span><br><span class="line"><span class="undefined">        cv.height = 3 * cv.width / 5;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// canvas坐标原点在左上角</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> padding = <span class="number">16</span>,  <span class="comment">//边距</span></span></span><br><span class="line"><span class="javascript">        n = <span class="number">4</span>,<span class="comment">//上下距离n个padding</span></span></span><br><span class="line"><span class="javascript">        x1 = padding,  <span class="comment">//横线左边点x坐标</span></span></span><br><span class="line"><span class="javascript">        x2 = cv.width - padding,  <span class="comment">//横线右边边点x坐标</span></span></span><br><span class="line"><span class="javascript">        y1 = n * padding,  <span class="comment">//竖向上边点y坐标</span></span></span><br><span class="line"><span class="javascript">        y2 = cv.height - n * padding,  <span class="comment">//竖向下边点y坐标</span></span></span><br><span class="line"><span class="javascript">        xLength = cv.width - <span class="number">3</span> * padding,    <span class="comment">//x轴的长度</span></span></span><br><span class="line"><span class="javascript">        yLength = cv.height - <span class="number">3</span> * n * padding;  <span class="comment">//y轴的长度</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> maxNum;<span class="comment">//求数组中的最大值</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> pointsWidth;<span class="comment">//折线上每个点之间的距离</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ctx = cv.getContext(<span class="string">"2d"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> data;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">rankdata</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        data=rankdata;</span></span><br><span class="line"><span class="undefined">        ctx.globalAlpha = 1;</span></span><br><span class="line"><span class="undefined">        ctx.lineWidth = 1;</span></span><br><span class="line"><span class="javascript">        ctx.strokeStyle = <span class="string">"white"</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//填充背景颜色</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> grd = ctx.createLinearGradient(<span class="number">0</span>, <span class="number">0</span>, cv.height, <span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">        grd.addColorStop(<span class="number">0.1</span>, <span class="string">"#21BBB1"</span>);</span></span><br><span class="line"><span class="javascript">        grd.addColorStop(<span class="number">0.9</span>, <span class="string">"#0E8FA2"</span>);</span></span><br><span class="line"><span class="undefined">        ctx.fillStyle = grd;</span></span><br><span class="line"><span class="undefined">        ctx.fillRect(0, 0, cv.width, cv.height);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//顶部line </span></span></span><br><span class="line"><span class="undefined">        ctx.moveTo(x1, y1);</span></span><br><span class="line"><span class="undefined">        ctx.lineTo(x2, y1);</span></span><br><span class="line"><span class="undefined">        ctx.stroke();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//底部line</span></span></span><br><span class="line"><span class="undefined">        ctx.moveTo(x1, y2);</span></span><br><span class="line"><span class="undefined">        ctx.lineTo(x2, y2);</span></span><br><span class="line"><span class="undefined">        ctx.stroke();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//中断（坐标轴和折线的）连接</span></span></span><br><span class="line"><span class="undefined">        ctx.beginPath();</span></span><br><span class="line"><span class="javascript">        ctx.font = <span class="string">"30px Arial"</span>;</span></span><br><span class="line"><span class="javascript">        ctx.fillStyle = <span class="string">"white"</span>;</span></span><br><span class="line"><span class="javascript">        ctx.strokeStyle = <span class="string">"white"</span>;</span></span><br><span class="line"><span class="undefined">        ctx.lineWidth = 3;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        maxNum = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, data);<span class="comment">//求数组中的最大值</span></span></span><br><span class="line"><span class="javascript">        pointsWidth = xLength / (data.length - <span class="number">1</span>);<span class="comment">//折线上每个点之间的距离</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> pointX = padding + i * pointsWidth;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> pointY = <span class="number">2</span>* n * padding + (<span class="number">1</span> - data[i] / maxNum) * yLength;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            ctx.lineTo(pointX, pointY);<span class="comment">//折线</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>( (i==<span class="number">0</span>) ||(data.length&lt;=<span class="number">7</span>)||(data.length&gt;<span class="number">7</span> &amp;&amp; (i+<span class="number">1</span>)%<span class="number">5</span>==<span class="number">0</span>))&#123;</span></span><br><span class="line"><span class="javascript">                ctx.fillText(i + <span class="number">1</span>, pointX<span class="number">-5</span>, y2 + <span class="number">40</span>); <span class="comment">//横轴</span></span></span><br><span class="line"><span class="javascript">                ctx.textAlign = <span class="string">"center"</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">            ctx.stroke();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 圆点</span></span></span><br><span class="line"><span class="undefined">            ctx.beginPath();</span></span><br><span class="line"><span class="javascript">            ctx.arc(pointX, pointY, <span class="number">6</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>);</span></span><br><span class="line"><span class="undefined">            ctx.fill();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            ctx.moveTo(pointX, pointY);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 折线阴影</span></span></span><br><span class="line"><span class="undefined">        ctx.beginPath();</span></span><br><span class="line"><span class="undefined">        ctx.moveTo(x1, y2);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> pointX = padding + i * pointsWidth;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> pointY = <span class="number">2</span>*n* padding + (<span class="number">1</span> - data[i] / maxNum) * yLength;</span></span><br><span class="line"><span class="javascript">            ctx.lineTo(pointX, pointY);<span class="comment">//折线</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(i==data.length<span class="number">-1</span>)&#123;</span></span><br><span class="line"><span class="undefined">                ctx.lineTo(pointX, y2);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        ctx.globalAlpha = 0; </span></span><br><span class="line"><span class="undefined">        ctx.lineTo(x1, y2);</span></span><br><span class="line"><span class="undefined">        ctx.globalAlpha = 0.1;</span></span><br><span class="line"><span class="javascript">        ctx.fillStyle = <span class="string">"white"</span>;</span></span><br><span class="line"><span class="undefined">        ctx.fill();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">clearCanvas</span>(<span class="params"></span>)</span>&#123;  </span></span><br><span class="line"><span class="undefined">        cv.height=cv.height; </span></span><br><span class="line"><span class="undefined">    &#125;  </span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">week</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        clearCanvas();</span></span><br><span class="line"><span class="undefined">        draw(data1);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">month</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        clearCanvas();</span></span><br><span class="line"><span class="undefined">        draw(data2);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    </span></span><br><span class="line"><span class="javascript">    <span class="comment">// 点击事件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> animateX=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> animateY=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> animateText=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">    cv.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> index=<span class="built_in">Math</span>.round((data.length<span class="number">-1</span>) * (e.layerX-padding/<span class="number">2</span>) / (cv.offsetWidth -  <span class="number">2</span>* padding/<span class="number">2</span>));</span></span><br><span class="line"><span class="undefined">          animateX = padding + index * pointsWidth;</span></span><br><span class="line"><span class="undefined">          animateY = 2*n*padding + (1 - data[index] / maxNum) * yLength;</span></span><br><span class="line"><span class="undefined">          animateText= data[index];</span></span><br><span class="line"><span class="undefined">          animate();</span></span><br><span class="line"><span class="javascript">    &#125;, <span class="literal">false</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 点击动画</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">          clearCanvas();</span></span><br><span class="line"><span class="undefined">          draw(data);</span></span><br><span class="line"><span class="undefined">          animateY = animateY-30;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span> (animateY &gt;= <span class="number">7</span>*padding) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.requestAnimationFrame(animate,cv);</span></span><br><span class="line"><span class="javascript">          &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="undefined">          	animateY=7*padding;</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="javascript">          ctx.fillStyle = <span class="string">"white"</span>;</span></span><br><span class="line"><span class="javascript">          ctx.font = <span class="string">"35px Arial"</span>;</span></span><br><span class="line"><span class="undefined">          ctx.globalAlpha = 0.5;</span></span><br><span class="line"><span class="javascript">          ctx.fillText(animateText, animateX, animateY); <span class="comment">//横轴</span></span></span><br><span class="line"><span class="undefined">          </span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    draw(data1);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+            
+          </div>
+        </div>
+
+        
+        <div class="article-footer-copyright">
+  <div>本文作者：IT姑凉</div>
+  <div>本文链接：<a href="http://www.itguliang.com/post/2d7df994.html">http://www.itguliang.com/post/2d7df994.html</a></div>
+  <div>本文首发于 <a href="https://itguliang.github.io" rel="external nofollow noopener noreferrer" target="_blank">IT姑凉博客</a> ，如需转载请注明出处，谢谢！</div>
+</div>
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/6aef7dde.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          IOS申请证书到发布常见问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/6fffd4ca.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        Android IOS 音频中断处理
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

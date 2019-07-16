@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>Html5 Audio 和 Video 属性事件汇总 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="audio autoplay：自动播放 controls：显示控件 loop：循环播放 preload：音频在页面加载时进行加载 src：音频链接  html:&amp;lt;audio id=&quot;media&quot; src=&quot;http://.../test.mp3&quot; controls&amp;gt;&amp;lt;/audio&amp;gt; 获取音频对象//audio可以直接通过new创建对象myMedia = new Audio(">
+<meta name="keywords" content="Html&#x2F;Css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html5 Audio 和 Video 属性事件汇总">
+<meta property="og:url" content="http://www.itguliang.com/post/adf0756b.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="audio autoplay：自动播放 controls：显示控件 loop：循环播放 preload：音频在页面加载时进行加载 src：音频链接  html:&amp;lt;audio id=&quot;media&quot; src=&quot;http://.../test.mp3&quot; controls&amp;gt;&amp;lt;/audio&amp;gt; 获取音频对象//audio可以直接通过new创建对象myMedia = new Audio(">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-01-15T09:16:47.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Html5 Audio 和 Video 属性事件汇总">
+<meta name="twitter:description" content="audio autoplay：自动播放 controls：显示控件 loop：循环播放 preload：音频在页面加载时进行加载 src：音频链接  html:&amp;lt;audio id=&quot;media&quot; src=&quot;http://.../test.mp3&quot; controls&amp;gt;&amp;lt;/audio&amp;gt; 获取音频对象//audio可以直接通过new创建对象myMedia = new Audio(">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+    <div class="post">
+      
+      <article id="post-h5-audio-video" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Html5 Audio 和 Video 属性事件汇总
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished">2018-07-01</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/adf0756b.html" class="leancloud_visitors" data-flag-title="Html5 Audio 和 Video 属性事件汇总"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><ul>
+<li>autoplay：自动播放</li>
+<li>controls：显示控件</li>
+<li>loop：循环播放</li>
+<li>preload：音频在页面加载时进行加载</li>
+<li>src：音频链接</li>
+</ul>
+<p>html:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">id</span>=<span class="string">"media"</span> <span class="attr">src</span>=<span class="string">"http://.../test.mp3"</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>获取音频对象<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//audio可以直接通过new创建对象</span></span><br><span class="line">myMedia = <span class="keyword">new</span> Audio(<span class="string">"http://.../test.mp3"</span>);</span><br><span class="line"><span class="comment">//audio和video都可以通过标签获取对象</span></span><br><span class="line">myMedia = <span class="built_in">document</span>.getElementById(<span class="string">"media"</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><ul>
+<li>src ：视频的属性，url地址</li>
+<li>poster：视频封面，没有播放时显示的图片</li>
+<li>preload：预加载|none|metadata（部分预加载）|auto。默认为auto</li>
+<li>autoplay：自动播放</li>
+<li>loop：循环播放</li>
+<li>controls：浏览器自带的控制条</li>
+<li>width：视频宽度</li>
+<li>height：视频高度</li>
+</ul>
+<p>其中： src地址可控制播放区域（调取native播放器（qq,uc等浏览器）的除外）<br>【示例】 <a href="http://xxxx.com/video.mp4#t=10,20" rel="external nofollow noopener noreferrer" target="_blank">http://xxxx.com/video.mp4#t=10,20</a>   表示播放范围10s-20s;<br>t=,02:00:00 从开始到两小时;t=60 从60s开始;t=,10.5 开始到10.5s</p>
+<p>html:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"media"</span> <span class="attr">src</span>=<span class="string">"http://.../test.mp4"</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>获取video对象:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">myMedia = <span class="built_in">document</span>.getElementById(<span class="string">"media"</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="HTMLVideoElement和HTMLAudioElement-均继承自HTMLMediaElement"><a href="#HTMLVideoElement和HTMLAudioElement-均继承自HTMLMediaElement" class="headerlink" title="HTMLVideoElement和HTMLAudioElement 均继承自HTMLMediaElement"></a>HTMLVideoElement和HTMLAudioElement 均继承自HTMLMediaElement</h2><h3 id="Media-方法"><a href="#Media-方法" class="headerlink" title="Media 方法"></a>Media 方法</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">myMedia.canPlayType();<span class="comment">//检测浏览器是否能播放指定的音频/视频类型。</span></span><br><span class="line"><span class="comment">// 'probable'：浏览器最可能支持该类型</span></span><br><span class="line"><span class="comment">// 'maybe'：可能支持</span></span><br><span class="line"><span class="comment">// ''：不支持</span></span><br><span class="line">myMedia.load();      <span class="comment">//重新加载，用于更改src之后使用，无参数，无返回值</span></span><br><span class="line">myMedia.play();      <span class="comment">//播放</span></span><br><span class="line">myMedia.pause();     <span class="comment">//暂停</span></span><br></pre></td></tr></table></figure>
+<h3 id="Media-属性"><a href="#Media-属性" class="headerlink" title="Media 属性"></a>Media 属性</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">myMedia.src = value; <span class="comment">//返回或设置当前资源的URL</span></span><br><span class="line">myMedia.currentSrc;  <span class="comment">//返回当前资源的URL</span></span><br><span class="line">myMedia.canPlayType(type);  <span class="comment">//是否能播放某种格式的资源</span></span><br><span class="line"></span><br><span class="line">myMedia.controls;    <span class="comment">//是否有默认控制条</span></span><br><span class="line">myMedia.autoPlay;    <span class="comment">//是否自动播放</span></span><br><span class="line">myMedia.loop;        <span class="comment">//是否循环播放 默认为false</span></span><br><span class="line">myMedia.ended;       <span class="comment">//是否结束</span></span><br><span class="line">myMedia.paused;      <span class="comment">//是否暂停</span></span><br><span class="line">myMedia.seeking;     <span class="comment">//是否正在seeking</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//只有 Internet Explorer 9 支持 error 属性。</span></span><br><span class="line">myMedia.error;       <span class="comment">//null:正常</span></span><br><span class="line">myMedia.error.code;  <span class="comment">//1.用户终止 2.网络错误 3.解码错误 4.URL无效</span></span><br><span class="line"></span><br><span class="line">myMedia.preload; </span><br><span class="line"><span class="comment">// auto：一旦页面加载，则开始加载音频或视频</span></span><br><span class="line"><span class="comment">// metadata：当页面加载后仅加载音频或视频的元数据</span></span><br><span class="line"><span class="comment">// none：页面加载后不加载音频或视频</span></span><br><span class="line"></span><br><span class="line">myMedia.networkState;</span><br><span class="line"><span class="comment">// 0 = NETWORK_EMPTY - 音频/视频尚未初始化</span></span><br><span class="line"><span class="comment">// 1 = NETWORK_IDLE - 音频/视频是活动的且已选取资源，但并未使用网络</span></span><br><span class="line"><span class="comment">// 2 = NETWORK_LOADING - 浏览器正在下载数据</span></span><br><span class="line"><span class="comment">// 3 = NETWORK_NO_SOURCE - 未找到音频/视频来源</span></span><br><span class="line"></span><br><span class="line">myMedia.readyState;</span><br><span class="line"><span class="comment">// 0 = HAVE_NOTHING - 没有关于音频/视频是否就绪的信息</span></span><br><span class="line"><span class="comment">// 1 = HAVE_METADATA - 关于音频/视频就绪的元数据</span></span><br><span class="line"><span class="comment">// 2 = HAVE_CURRENT_DATA - 关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒</span></span><br><span class="line"><span class="comment">// 3 = HAVE_FUTURE_DATA - 当前及至少下一帧的数据是可用的</span></span><br><span class="line"><span class="comment">// 4 = HAVE_ENOUGH_DATA - 可用数据足以开始播放</span></span><br><span class="line"></span><br><span class="line">myMedia.playbackRate = value;        <span class="comment">//当前播放速度，设置后马上改变</span></span><br><span class="line">myMedia.defaultPlaybackRate = value; <span class="comment">//默认的回放速度，可以设置</span></span><br><span class="line"><span class="comment">// 1：正常速度</span></span><br><span class="line"><span class="comment">// 0.5：半速</span></span><br><span class="line"><span class="comment">// 2：倍速</span></span><br><span class="line"><span class="comment">// -1：向后正常速度</span></span><br><span class="line"><span class="comment">// -0.5：向后半速</span></span><br><span class="line"></span><br><span class="line">myMedia.currentTime = value; <span class="comment">//当前播放的位置，赋值可改变位置</span></span><br><span class="line">myMedia.startTime;           <span class="comment">//一般为0，如果为流媒体或者不从0开始的资源，则不为0</span></span><br><span class="line">myMedia.duration;            <span class="comment">//当前资源长度 流返回无限</span></span><br><span class="line">myMedia.volume = value;      <span class="comment">//音量</span></span><br><span class="line">myMedia.defaultMuted;        <span class="comment">//初始是否静音，默认为false</span></span><br><span class="line">myMedia.muted = value;       <span class="comment">//静音 默认为false</span></span><br><span class="line"></span><br><span class="line">myMedia.seekable;   <span class="comment">//返回可以seek的区域 TimeRanges</span></span><br><span class="line">myMedia.played;     <span class="comment">//返回已经播放的区域，TimeRanges，关于此对象见下文</span></span><br><span class="line">myMedia.buffered;   <span class="comment">//返回已缓冲区域，TimeRanges</span></span><br><span class="line"><span class="comment">//TimeRanges(区域)对象</span></span><br><span class="line">TimeRanges.length;       <span class="comment">//区域段数</span></span><br><span class="line">TimeRanges.start(index); <span class="comment">//第index段区域的开始位置</span></span><br><span class="line">TimeRanges.end(index);   <span class="comment">//第index段区域的结束位置</span></span><br></pre></td></tr></table></figure>
+<h3 id="Media-事件"><a href="#Media-事件" class="headerlink" title="Media 事件"></a>Media 事件</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> eventTester = <span class="function"><span class="keyword">function</span>(<span class="params">eventName</span>)</span>&#123;</span><br><span class="line">   myMedia.addEventListener(eventName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(eventName)</span><br><span class="line">   &#125;,<span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line">eventTester(<span class="string">"loadstart"</span>);       <span class="comment">//客户端开始请求数据</span></span><br><span class="line">eventTester(<span class="string">"progress"</span>);        <span class="comment">//客户端正在下载指定的音频或视频</span></span><br><span class="line">eventTester(<span class="string">"loadedmetadata"</span>);  <span class="comment">//音频或视频的元数据已加载</span></span><br><span class="line">eventTester(<span class="string">"loadeddata"</span>);      <span class="comment">//音频或视频的当前帧已加载，但没有足够数据播放下一帧</span></span><br><span class="line">eventTester(<span class="string">"canplay"</span>);         <span class="comment">//可以播放，但中途可能因为加载而暂停 浏览器能够开始播放指定的音频或视频</span></span><br><span class="line">eventTester(<span class="string">"canplaythrough"</span>);  <span class="comment">//音频或视频能够不停顿地一直播放</span></span><br><span class="line"></span><br><span class="line">eventTester(<span class="string">"suspend"</span>);         <span class="comment">//延迟下载 在音频或视频数据被阻止加载时触发(可以是完成加载后触发，或者因为被暂停)</span></span><br><span class="line">eventTester(<span class="string">"abort"</span>);           <span class="comment">//在音频或视频终止加载时触发（不是因为错误引起）</span></span><br><span class="line">eventTester(<span class="string">"error"</span>);           <span class="comment">//请求数据时遇到错误</span></span><br><span class="line">eventTester(<span class="string">"stalled"</span>);         <span class="comment">//在浏览器尝试获取媒体数据，但数据不可用时触发。</span></span><br><span class="line">eventTester(<span class="string">"empted"</span>);          <span class="comment">//在发生故障并且文件突然不可用时触发</span></span><br><span class="line">eventTester(<span class="string">"play"</span>);            <span class="comment">//play()和autoplay开始播放时触发</span></span><br><span class="line">eventTester(<span class="string">"pause"</span>);           <span class="comment">//pause()触发</span></span><br><span class="line"></span><br><span class="line">eventTester(<span class="string">"waiting"</span>);         <span class="comment">//等待数据，并非错误 需要缓冲下一帧而停止时触发</span></span><br><span class="line">eventTester(<span class="string">"playing"</span>);         <span class="comment">//音频或视频已开始播放时触发</span></span><br><span class="line"></span><br><span class="line">eventTester(<span class="string">"seeking"</span>);         <span class="comment">//正在进行指示定位时触发</span></span><br><span class="line">eventTester(<span class="string">"seeked"</span>);          <span class="comment">//指示定位已结束时触发</span></span><br><span class="line">eventTester(<span class="string">"timeupdate"</span>);      <span class="comment">//播放时间改变 播放位置改变时触发(播放和调整指示定位时都会触发)</span></span><br><span class="line">eventTester(<span class="string">"ended"</span>);           <span class="comment">//音频或视频文件播放完毕后触发</span></span><br><span class="line">eventTester(<span class="string">"ratechange"</span>);      <span class="comment">//播放速度改变进触发</span></span><br><span class="line">eventTester(<span class="string">"durationchange"</span>);  <span class="comment">//资源长度改变</span></span><br><span class="line">eventTester(<span class="string">"volumechange"</span>);    <span class="comment">//音量改变时触发</span></span><br></pre></td></tr></table></figure>
+<p>当音频/视频处于加载过程中时，会依次发生以下事件：<br>1、loadstart<br>2、durationchange<br>3、loadedmetadata<br>4、loadeddata<br>5、progress<br>6、canplay<br>7、canplaythrough</p>
+<h2 id="vue-实现视频播放"><a href="#vue-实现视频播放" class="headerlink" title="vue 实现视频播放"></a>vue 实现视频播放</h2><p>1.安装插件<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install vue-video-player -S</span><br></pre></td></tr></table></figure></p>
+<p>2.配置插件<br>在main.js里<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> VideoPlayer <span class="keyword">from</span> <span class="string">'vue-video-player'</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'video.js/dist/video-js.css'</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'vue-video-player/src/custom-theme.css'</span>)</span><br><span class="line"></span><br><span class="line">Vue.use(VideoPlayer)</span><br></pre></td></tr></table></figure></p>
+<p>3.使用插件</p>
+<p><a href="https://github.com/surmon-china/vue-video-player" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/surmon-china/vue-video-player</a></p>
+<hr>
+<p>参考：<br><a href="http://www.jianshu.com/p/404d01b8e713" rel="external nofollow noopener noreferrer" target="_blank">http://www.jianshu.com/p/404d01b8e713</a></p>
+<p><a href="https://github.com/robinma/videoplayer" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/robinma/videoplayer</a></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/hh924822(v=vs.85)" rel="external nofollow noopener noreferrer" target="_blank">https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/hh924822(v=vs.85)</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement" rel="external nofollow noopener noreferrer" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement</a><br><a href="https://segmentfault.com/a/1190000009395289" rel="external nofollow noopener noreferrer" target="_blank">https://segmentfault.com/a/1190000009395289</a><br><a href="http://www.runoob.com/tags/ref-av-dom.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.runoob.com/tags/ref-av-dom.html</a></p>
+
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/c3ec74bc.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          纯CSS制作箭头(空心、实心、任意大小、任意方向)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/27fd0447.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        华为Android8无法播放.aac文件
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

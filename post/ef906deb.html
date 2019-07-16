@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>Git 命令整理 - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="git configgit config --list : 检查配置信息 git config &amp;lt;key&amp;gt; : 检查 Git 的某一项配置 git config --global --edit : 编辑配置文件 git config --global user.name &amp;quot;itguliang&amp;quot; : 全局配置用户名 git config --global user.e">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 命令整理">
+<meta property="og:url" content="http://www.itguliang.com/post/ef906deb.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="git configgit config --list : 检查配置信息 git config &amp;lt;key&amp;gt; : 检查 Git 的某一项配置 git config --global --edit : 编辑配置文件 git config --global user.name &amp;quot;itguliang&amp;quot; : 全局配置用户名 git config --global user.e">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://img.itguliang.com/static/images/ef906deb-1.png">
+<meta property="og:updated_time" content="2019-03-28T14:58:33.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 命令整理">
+<meta name="twitter:description" content="git configgit config --list : 检查配置信息 git config &amp;lt;key&amp;gt; : 检查 Git 的某一项配置 git config --global --edit : 编辑配置文件 git config --global user.name &amp;quot;itguliang&amp;quot; : 全局配置用户名 git config --global user.e">
+<meta name="twitter:image" content="http://img.itguliang.com/static/images/ef906deb-1.png">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+  <div class="post-toc">
+    
+      <article id="post-git" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Git 命令整理
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2019-06-29T16:00:00.000Z" itemprop="datePublished">2019-06-30</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/ef906deb.html" class="leancloud_visitors" data-flag-title="Git 命令整理"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <h2 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h2><p><code>git config --list</code> : 检查配置信息</p>
+<p><code>git config &lt;key&gt;</code> : 检查 Git 的某一项配置</p>
+<p><code>git config --global --edit</code> : 编辑配置文件</p>
+<p><code>git config --global user.name &quot;itguliang&quot;</code> : 全局配置用户名</p>
+<p><code>git config --global user.email johndoe@example.com</code> : 全局配置用户邮箱</p>
+<p><code>git config --global --unset user.name</code> : 删除配置信息</p>
+<p><code>git config --global --unset user.email</code> : 删除配置信息</p>
+<h2 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h2><p><code>git clone &lt;版本库的网址&gt;</code> : 与远程主机的版本库同名</p>
+<p><code>git clone &lt;版本库的网址&gt; &lt;本地目录名&gt;</code> : 指定不同的目录名</p>
+<p><code>git clone -o &lt;其他的主机名&gt; &lt;版本库的网址&gt;</code> : 指定用其他主机名</p>
+<p>克隆版本库远程主机自动被Git命名为<code>origin</code>。如果想用其他的主机名，<code>git clone</code>命令的<code>-o</code>选项指定。</p>
+<h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。</p>
+<p><code>git remote</code> : 列出所有远程主机</p>
+<p><code>git remote -v</code> : 查看远程主机的网址</p>
+<p><code>git remote show &lt;主机名&gt;</code> : 查看该主机的详细信息</p>
+<p><code>git remote add &lt;主机名&gt; &lt;网址&gt;</code> : 添加远程主机</p>
+<p><code>git remote rm &lt;主机名&gt;</code> : 删除远程主机</p>
+<p><code>git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</code> : 远程主机的改名</p>
+<h2 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h2><p><code>git branch -a</code> : 查看远程分支</p>
+<p><code>git branch</code> : 查看本地分支</p>
+<p><code>git branch branchName</code> : 创建分支</p>
+<p><code>git branch -d branchName</code> : 删除本地分支</p>
+<h2 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h2><p><code>git fetch &lt;远程主机名&gt;</code> : 将某个远程主机的更新，全部取回本地</p>
+<p><code>git fetch &lt;远程主机名&gt; &lt;分支名&gt;</code> : 只取回特定分支的更新<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git fetch origin master <span class="comment">#取回origin主机的master分支</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h2><p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code><br>取回远程主机某个分支的更新，再与本地的指定分支合并<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull origin master:dev <span class="comment">#取回origin主机的master分支，与本地的dev分支合并</span></span><br><span class="line">$ git pull origin master <span class="comment">#取回origin/master分支，再与当前分支合并。实质上等同于先git fetch，再git merge</span></span><br><span class="line">$ git fetch origin</span><br><span class="line">$ git merge origin/master</span><br></pre></td></tr></table></figure></p>
+<h2 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h2><p><code>git status</code> : 检查当前文件状态输出十分详细</p>
+<p><code>git status -s</code> : 简短输出</p>
+<h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><p>查看具体修改了什么地方<br><code>git diff</code> : 尚未缓存的改动</p>
+<p><code>git diff --stat</code> : 显示摘要而非整个diff：</p>
+<p><code>git diff --cached</code> : 查看已缓存的改动</p>
+<p><code>git diff HEAD</code> : 查看已缓存的与未缓存的所有改动</p>
+<p><code>git diff --staged</code></p>
+<h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h2><p>每次准备提交前，先用 git status 看下，是不是都已暂存起来了， 然后再运行提交命令 git commit</p>
+<p><code>git commit -a -m &#39;added new benchmarks&#39;</code> 跳过暂存</p>
+<p><code>git commit --amend --no-edit</code> push前 追加提交 不修改提交说明</p>
+<h2 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h2><p><code>git rm log/\*.log</code> : 删除 log/ 目录下扩展名为 .log 的所有文件</p>
+<p><code>git rm \*~</code> : 删除以 ~ 结尾的所有文件。</p>
+<p><code>git rm -f &lt;file&gt;</code> : 删除之前修改过并且已经放到暂存区域的文件，加 -f</p>
+<p><code>git rm --cached &lt;file&gt;</code> : 如果把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，加 –cached</p>
+<h2 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h2><p><code>git tag</code> : 列出标签</p>
+<p><code>git tag tagName</code> : 添加标签</p>
+<p><code>git tag -d tagName</code> : 删除标签</p>
+<p><code>git push origin tagName</code> : 提交标签</p>
+<p><code>git push origin :refs/tags/v0.1</code> : 删除远程标签 v0.1</p>
+<h2 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h2><p>用于移动或重命名一个文件、目录、软连接</p>
+<p><code>git mv file_from file_to</code></p>
+<h2 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h2><p>–no-ff：不使用fast-forward方式合并，保留分支的commit历史<br>–squash：使用squash方式合并，把多次分支commit历史压缩为一次</p>
+<p><code>git merge --ff</code> : fast-forward方式就是当条件允许的时候，git直接把HEAD指针指向合并分支的头，完成合并。属于“快进方式”，不过这种情况如果删除分支，则会丢失分支信息。因为在这个过程中没有创建commit</p>
+<p><code>git merge --squash</code> : 是用来把一些不必要commit进行压缩，比如说，你的feature在开发的时候写的commit很乱，那么我们合并的时候不希望把这些历史commit带过来，于是使用–squash进行合并，此时文件已经同合并后一样了，但不移动HEAD，不提交。需要进行一次额外的commit来“总结”一下，然后完成最终的合并</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dev分支的修改合并到master主分支步骤</span></span><br><span class="line">$ git checkout master    <span class="comment">#切换到master主分支</span></span><br><span class="line">$ git pull origin master <span class="comment">#更新代码</span></span><br><span class="line">$ git merge dev --no-ff  <span class="comment">#dev合并到主分支</span></span><br><span class="line">$ git push origin master <span class="comment">#提交到主分支</span></span><br><span class="line">$ git branch -d dev      <span class="comment">#删除本地dev分支</span></span><br><span class="line">$ git push origin --delete dev  <span class="comment">#git branch -a 查看远程分支，删除远程dev分支</span></span><br></pre></td></tr></table></figure>
+<h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code> : 将本地分支的更新，推送到远程主机</p>
+<h2 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h2><p><code>git reset HEAD</code> : 取消之前 git add 添加，但不希望包含在下一提交快照中的缓存<br><code>git reset --mixed</code> : 头指针恢复，add的缓存也会丢失掉，工作空间的代码不变<br><code>git reset --soft</code> : 头指针恢复，add的缓存不变，工作空间的代码不变。如果还要提交，直接commit即可<br><code>git reset --hard</code> : 头指针恢复，aad的缓存消失，本地的源码也会变为上一个版本的内容，彻底回退到某个版本</p>
+<h2 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h2><p><code>git stash</code> : 会把所有未提交的修改（包括暂存的和非暂存的）都保存起来，用于后续恢复当前工作目录。</p>
+<p><code>git stash save &quot;test-cmd-stash&quot;</code> : 实际应用中推荐给每个stash 加个msg</p>
+<p><code>git stash list</code> : 查看现有stash</p>
+<p><code>git stash drop stash@{0}</code> : 移除stash@{0}</p>
+<p>举个🌰：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch develop</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">        modified:   package.json</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br><span class="line"></span><br><span class="line">$ git stash save <span class="string">"暂时保存"</span></span><br><span class="line">Saved working directory and index state On develop: 暂时保存</span><br><span class="line"></span><br><span class="line">$ git status</span><br><span class="line">On branch develop</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line"></span><br><span class="line">$ git stash list</span><br><span class="line">stash@&#123;0&#125;: On develop: 暂时保存</span><br><span class="line"></span><br><span class="line">$ git stash apply</span><br><span class="line">On branch develop</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">        modified:   package.json</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://blog.csdn.net/flysqrlboy/article/details/79250150" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/flysqrlboy/article/details/79250150</a></p>
+<h2 id="常见问题解决"><a href="#常见问题解决" class="headerlink" title="常见问题解决"></a>常见问题解决</h2><ul>
+<li><p>修改本地和远程分支的名称</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#本地分支重命名(还没有推送到远程)</span></span><br><span class="line">$ git branch -m oldName newName  </span><br><span class="line"><span class="comment">#远程分支重命名 (已经推送远程-假设本地分支和远程对应分支名称相同)</span></span><br><span class="line">$ git branch -m oldName newName <span class="comment">#重命名本地分支</span></span><br><span class="line">$ git push --delete origin oldName <span class="comment">#删除远程分支</span></span><br><span class="line">$ git push --<span class="built_in">set</span>-upstream origin newName <span class="comment">#把修改后的本地分支与远程分支关联</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销add</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git reset HEAD . <span class="comment">#撤销所有add文件 </span></span><br><span class="line">$ git reset HEAD -filename <span class="comment">#撤销单个add文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销commit 未push</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> <span class="comment">#找到想要撤销的id </span></span><br><span class="line">$ git reset --soft &lt;commit版本号&gt; <span class="comment">#撤销，但不对代码修改撤销，可通过git commit 重新提交对本地代码的修改</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销commit 已经push</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">$ git reset --hard &lt;commit版本号&gt; <span class="comment">#完成撤销,同时将代码恢复到前一commit_id 对应的版本 </span></span><br><span class="line">$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt; --force</span><br><span class="line"><span class="comment">#要加上force 不然会提示</span></span><br><span class="line"><span class="comment">#error: failed to push some refs to '地址'</span></span><br><span class="line"><span class="comment">#hint: Updates were rejected because the tip of your current branch is behind</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Git也允许手动建立追踪关系</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#指定dev分支追踪origin/master分支</span></span><br><span class="line">$ git branch --<span class="built_in">set</span>-upstream dev origin/master </span><br><span class="line"><span class="comment">#当前分支与远程分支存在追踪关系，git pull就可以省略远程分支名</span></span><br><span class="line">$ git pull origin</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>忽略某个被追踪的文件的修改</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#如果文件已经被跟踪，再放到.gitinore可能会失效，用以下命令来忽略</span></span><br><span class="line">$ git update-index --assume-unchanged your_file_path </span><br><span class="line"><span class="comment">#撤销用：</span></span><br><span class="line">$ git update-index --no-assume-unchanged your_file_path</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把指定的dist文件提交到gh-pages分支上</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git subtree push --prefix=dist origin gh-pages</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git log 如何退出操作</p>
+<p>  按 <code>Q</code> 键</p>
+</li>
+</ul>
+<ul>
+<li><p>Git Push 避免用户名和密码方法<br><a href="http://www.cnblogs.com/ballwql/p/3462104.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.cnblogs.com/ballwql/p/3462104.html</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#全局配置</span></span><br><span class="line">$ git config --global user.name <span class="string">"username"</span> </span><br><span class="line">$ git config --global user.email <span class="string">"email"</span></span><br><span class="line">$ git config --global credential.helper store</span><br><span class="line"><span class="comment">#输入这个命令后,只需要输入一次用户名密码</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置只有自己需要忽略的文件</p>
+<p>  修改.git/info/exclude文件</p>
+</li>
+</ul>
+<ul>
+<li>常用命令图<br>（右键新标签页打开，放大查看，图转自文章 <a href="http://www.cnblogs.com/1-2-3/archive/2010/07/18/git-commands.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.cnblogs.com/1-2-3/archive/2010/07/18/git-commands.html</a> ）</li>
+</ul>
+<img src="http://img.itguliang.com/static/images/ef906deb-1.png">
+<p>相关链接：<br><a href="http://www.runoob.com/manual/git-guide/" rel="external nofollow noopener noreferrer" target="_blank">Git简明指南</a><br>Git 完整命令手册地址：<a href="http://git-scm.com/docs" rel="external nofollow noopener noreferrer" target="_blank">http://git-scm.com/docs</a><br>PDF 版命令手册：<a href="http://www.runoob.com/manual/github-git-cheat-sheet.pdf" rel="external nofollow noopener noreferrer" target="_blank">http://www.runoob.com/manual/github-git-cheat-sheet.pdf</a><br><a href="https://git-scm.com/book/zh/v2" rel="external nofollow noopener noreferrer" target="_blank">https://git-scm.com/book/zh/v2</a><br><a href="http://www.runoob.com/git/git-basic-operations.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.runoob.com/git/git-basic-operations.html</a><br><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.ruanyifeng.com/blog/2014/06/git_remote.html</a><br><a href="https://www.cnblogs.com/cheneasternsun/p/5952830.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.cnblogs.com/cheneasternsun/p/5952830.html</a></p>
+
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/5a7957c7.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          『小事记』· 2019
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/3ceebd6f.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        阿里云搭建私人git服务器、一键部署Hexo博客
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-config"><span class="toc-text">git config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone"><span class="toc-text">git clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remote"><span class="toc-text">git remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-branch"><span class="toc-text">git branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch"><span class="toc-text">git fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull"><span class="toc-text">git pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-status"><span class="toc-text">git status</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-diff"><span class="toc-text">git diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-commit"><span class="toc-text">git commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rm"><span class="toc-text">git rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag"><span class="toc-text">git tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-mv"><span class="toc-text">git mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-merge"><span class="toc-text">git merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-push"><span class="toc-text">git push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reset"><span class="toc-text">git reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash"><span class="toc-text">git stash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题解决"><span class="toc-text">常见问题解决</span></a></li></ol>
+    </div>
+
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>

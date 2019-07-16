@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="baidu-site-verification" content="AOWe2s7fmu">
+  
+
+  
+  <title>Cordova 项目适配 iPhone X - IT姑凉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="界面在中间没有全屏显示 config.xml 增加iPhoneX用的启动图（1125*2436）可以让画面充满屏幕，要重现build &amp;lt;platform name=&quot;ios&quot;&amp;gt;  &amp;lt;splash height=&quot;2436&quot; src=&quot;resources/ios/splash/1125_2436.png&quot; width=&quot;1125&quot; /&amp;gt;&amp;lt;/platform&amp;gt; 或者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cordova 项目适配 iPhone X">
+<meta property="og:url" content="http://www.itguliang.com/post/8072bd2e.html">
+<meta property="og:site_name" content="IT姑凉">
+<meta property="og:description" content="界面在中间没有全屏显示 config.xml 增加iPhoneX用的启动图（1125*2436）可以让画面充满屏幕，要重现build &amp;lt;platform name=&quot;ios&quot;&amp;gt;  &amp;lt;splash height=&quot;2436&quot; src=&quot;resources/ios/splash/1125_2436.png&quot; width=&quot;1125&quot; /&amp;gt;&amp;lt;/platform&amp;gt; 或者">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-01-14T03:01:24.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cordova 项目适配 iPhone X">
+<meta name="twitter:description" content="界面在中间没有全屏显示 config.xml 增加iPhoneX用的启动图（1125*2436）可以让画面充满屏幕，要重现build &amp;lt;platform name=&quot;ios&quot;&amp;gt;  &amp;lt;splash height=&quot;2436&quot; src=&quot;resources/ios/splash/1125_2436.png&quot; width=&quot;1125&quot; /&amp;gt;&amp;lt;/platform&amp;gt; 或者">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f99d0bf41afc30124dd1b713ee636bd4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+</html>
+<body>
+    <header id="header">
+  <div id="header-bar">
+    <a href="/" id="logo">
+    	<img src="/images/logo.png" alt="IT姑凉">
+    	<span>IT姑凉</span>
+    </a>
+  </div>
+</header>
+    
+    <div id="container">
+  
+    <div class="post">
+      
+      <article id="post-iPhoneX-style" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+        <div class="article-inner">
+          
+          
+          <header>
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Cordova 项目适配 iPhone X
+    </h1>
+  
+
+            <div class="article-meta">
+              <a class="article-date">
+  <i class="far fa-calendar-alt"></i>
+  <time datetime="2018-09-30T16:00:00.000Z" itemprop="datePublished">2018-10-01</time>
+</a>
+              
+              <span class="article-category">
+                <i class="far fa-folder-open" style="color: #999;"></i>
+                <a class="article-category-link" href="/categories/IT/">IT</a>
+              </span>
+              
+              
+              <span class="article-category-link">
+                <i class="far fa-eye"></i>
+                <span id="/post/8072bd2e.html" class="leancloud_visitors" data-flag-title="Cordova 项目适配 iPhone X"></span>
+              </span>
+              
+              <span class="article-category">
+                <a class="article-category-link">IT交流群：123493055</a>
+              </span>
+            </div>
+
+          </header>
+          
+          <div class="article-entry" itemprop="articleBody">
+            
+            <p>界面在中间没有全屏显示</p>
+<p><code>config.xml</code> 增加iPhoneX用的启动图（1125*2436）可以让画面充满屏幕，要重现build</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">platform</span> <span class="attr">name</span>=<span class="string">"ios"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">splash</span> <span class="attr">height</span>=<span class="string">"2436"</span> <span class="attr">src</span>=<span class="string">"resources/ios/splash/1125_2436.png"</span> <span class="attr">width</span>=<span class="string">"1125"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">platform</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者，xcode <code>项目/Resources/Images.xcassets/LaunchImage</code> 直接往iPhoneX位置处拖放入iPhoneX的1125 * 2436尺寸的启动图片，如果LauchImage中没有iPhoneX型号，可以右键LauchImage，Show in Finder，进入LaunchImage.launchimage文件夹，修改Contents.json文件，然后再拖入</p>
+<p>Contents.json:<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"extent"</span> : <span class="string">"full-screen"</span>,</span><br><span class="line">  <span class="attr">"idiom"</span> : <span class="string">"iphone"</span>,</span><br><span class="line">  <span class="attr">"subtype"</span> : <span class="string">"2436h"</span>,</span><br><span class="line">  <span class="attr">"filename"</span> : <span class="string">"1125_2436.png"</span>,</span><br><span class="line">  <span class="attr">"minimum-system-version"</span> : <span class="string">"11.0"</span>,</span><br><span class="line">  <span class="attr">"orientation"</span> : <span class="string">"portrait"</span>,</span><br><span class="line">  <span class="attr">"scale"</span> : <span class="string">"3x"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>剩下的内页微调，safe-area-inset-top和safe-area-inset-bottom 设定具体的安全区域</p>
+
+            
+          </div>
+        </div>
+
+        
+
+        
+        
+<nav id="article-nav">
+  
+    <a href="/post/e8c41f51.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        <i class="fa fa-chevron-left"></i>
+        
+          优化MPMoviePlayerController 全屏播放 退出后 cordova 项目上移
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/8f32d5f4.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        Vue全家桶+Node+MongoDB 博客系统
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  
+</nav>
+
+        
+
+        <div class="dashang-div">
+          <a id="dashang" class="dashang" href="javascript:;" title="Donate 打赏"></a>
+          <div id="payme" class="hidden">
+            <img src="/images/pay.png">
+          </div>
+        </div>
+
+      </article>
+      <div>
+        <h3 class="comment-title">评论</h3>
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    $(function () {
+      $(window).on('scroll', function () {
+        var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (scrollTop > 70) {
+          $('#toc').addClass("toc-fixed");
+          // document.getElementById('toc').style.top="0";
+        } else {
+          $('#toc').removeClass("toc-fixed");
+          // document.getElementById('toc').style.position = "absolute";
+        }
+      });
+      // 打赏
+      document.getElementById('dashang').onclick = function () {
+        var display = document.getElementById('payme').style.display;
+        document.getElementById('payme').style.display = display == "block" ? "none" : "block";
+      }
+      // 评论
+      new Valine({
+        el: '#comment',
+        notify: false,
+        verify: false,
+        appId: '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz',
+        appKey: 'RYC5fHYsedrXiXT1xrNeEWfI',
+        placeholder: '评论请先输入昵称喔～',
+        path: window.location.pathname,
+        avatar: 'mm'
+      });
+    });
+
+  </script>
+    
+    <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+      &copy;2018-2019  IT姑凉版权所有 粤ICP备18137070号
+  </div>
+  <div class="back-to-top" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</footer>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '7FkKwQXz56M9GU6KRpQxxCYr-gzGzoHsz';
+    var APP_KEY = 'RYC5fHYsedrXiXT1xrNeEWfI';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count 
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+
+        var backButton=$('#back-to-top');
+
+        function backToTop() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 800);
+        }
+        backButton.on('click', backToTop);
+        
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() > $(window).height())
+                backButton.fadeIn();
+            else
+                backButton.fadeOut();
+        });
+    });
+</script>
+</body>
